@@ -1,0 +1,57 @@
+/*
+ *
+ *     xiaofeng.yao     2015.8.15     tab
+ *
+ */
+
+@tab-width:320px;
+@tab-height:200px;
+@tab-title-background:#00bcd4;
+@tab-title-color:#fff;
+@tab-title-background-hover:#0492a5 !important;
+
+.Assembly-Tab{
+    width:@tab-width;
+    height:@tab-height;
+    border-bottom:1px solid @tab-title-background;
+    .tab-title{
+        width:@tab-width;
+        height:40px;
+        ul{
+            li{
+                width:80px;
+                height:40px;
+                text-align:center;
+                line-height:40px;
+                list-style:none;
+                display:inline-table;
+                cursor:pointer;
+                transition:0.6s;
+                background:@tab-title-background;
+                color:@tab-title-color;
+                &:hover{
+                    background:@tab-title-background-hover;
+                }
+                &:last-child{
+                    border-right:none;
+                }
+            }
+        }
+    }
+    .tabActive{
+        background:@tab-title-background-hover;
+    }
+    .tabshow{
+        display:block;
+    }
+    .tab-content{
+        li{
+            width:100%;
+            line-height:25px;
+            list-style:none;
+            a{
+                cursor:pointer;
+            }
+        }
+    }
+}

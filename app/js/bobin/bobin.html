@@ -1,0 +1,21 @@
+<!-- 中秋博饼 -->
+
+<div class="container">
+    <div class="row">
+        <br><br><br><br>
+        <div class="col-sm-8 col-md-8 col-lg-8" ng-controller="ngbobin">
+            <input type="button" class="btn btn-info" ng-click="bobinFun();" value="开始"/>
+            <div class="dice-div">
+                <ul>
+                    <li><img ng-src="./images/dice/{{dice_a}}"/></li>
+                    <li><img ng-src="./images/dice/{{dice_b}}"/></li>
+                    <li><img ng-src="./images/dice/{{dice_c}}"/></li>
+                    <li><img ng-src="./images/dice/{{dice_d}}"/></li>
+                    <li><img ng-src="./images/dice/{{dice_e}}"/></li>
+                    <li><img ng-src="./images/dice/{{dice_f}}"/></li>
+                </ul>
+            </div>
+            <h3 class="dice-h3" ng-if="titleshow">{{title}}</h3>       
+        </div>
+    </div>
+</div>

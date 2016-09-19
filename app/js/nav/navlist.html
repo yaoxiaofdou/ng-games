@@ -1,0 +1,11 @@
+<ul class="list-group-li" ng-show="componentshow" >
+    <li data-ng-repeat="comp in list.subcomponent"
+        ng-class="[comp.isActive ? 'addgroupli' : null]">
+        <a class="list-group-item" href={{comp.componenthref}}
+           ng-click="clearLiClass(lists); comp.isActive = 'true';">
+            <i class="iconfont {{comp.componenticon}}"></i>
+            &nbsp;&nbsp;
+            {{comp.componentname}}
+        </a>
+    </li>
+</ul>

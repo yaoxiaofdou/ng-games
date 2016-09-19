@@ -1,0 +1,67 @@
+<div class="container" ng-controller="sweetalert as alertDiv">
+    <h1>sweet alert</h1>
+    <div class="row">
+        <br>
+        <div class="input-group col-xs-5">
+            <span class="input-group-addon">请先输入提示语句</span>
+            <input type="text" class="form-control" ng-model="alertDiv.text"/>    
+        </div>
+        <br>
+        <div ng-show="alertDiv.text.length">
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertmessage();">Alert Message</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertactive();">Alert Active</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertsuccess();">Alert Success</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertjudge();">Alert Judge</button> 
+            </div>     
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertcanceljudge();">取消动画&&成功动画</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertimgmessage();">Img&&Message</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alerthtml();">< >&&Message</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertsetTimeout();">setTimeout</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertinputjudge();">alertinputjudge</button> 
+            </div>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-default" ng-click="alertAjax();">alertAjax</button> 
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<!-- alert img -->
+<h2>Alert Img Mask</h2>
+<div ng-controller="AlertImg as ImgState" ng-init="ImgState.isShow = false;ImgState.ImgSrc = './images/img_1.jpg';">
+    <div class="AlertImgDiv" ng-if="ImgState.isShow">
+        <div class="AlertImgMask"></div>
+        <img ng-src="{{ImgState.ImgSrc}}" ng-click="ImgState.isShow =! ImgState.isShow;"/>
+    </div>
+    <button type="button" class="btn btn-success" ng-click="ImgState.isShow =! ImgState.isShow;">ShowImgMask</button>
+</div>
+
+<h2>Alert Img</h2>
+<showimg img-src="showimg.imgsrc = './images/img_2.jpg';"></showimg>

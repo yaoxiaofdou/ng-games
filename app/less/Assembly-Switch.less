@@ -1,0 +1,242 @@
+/*
+*
+*     xiaofeng.yao     2016.8.16     switch 
+*
+*/
+@btn-switch-width:70px;
+@btn-switch-height:40px;
+@btn-switch-radius:25px;
+@btn-switch-border:1px solid #eee;
+@btn-switch-transition:1s;
+.btn-switch{
+    display:inline-block;
+    width:@btn-switch-width;
+    height:@btn-switch-height;
+    line-height:@btn-switch-height;
+    border:@btn-switch-border;
+    border-radius:@btn-switch-radius;
+    text-align:center;
+    position:relative;
+    transition:@btn-switch-transition;
+    .btn-switch-spot{
+        display:inline;
+        width:(@btn-switch-height)-4;
+        height:(@btn-switch-height)-4;
+        border-radius:50%;
+        position:absolute;
+        top:0;
+        bottom:0;
+        margin:auto;
+        cursor:pointer;
+    }
+}
+.btn-switch-left{
+    left:2px;
+    transition:0.5s;
+    background: #c9cdd0 !important;
+}
+.btn-switch-right{
+    left:30px;
+    transition:0.5s;
+}
+
+@btn-switch-default-color:#ffffff;
+@btn-switch-default-background:#5bc0de;
+@btn-switch-default-background-hover:#46b8da;
+
+.btn-switch-default{
+    background: @btn-switch-default-background;
+    color:@btn-switch-default-color;
+    .btn-switch-spot{
+        background:@btn-switch-default-color;
+        &:hover{
+            background:#fff7f7;
+        }
+    }
+    &:hover{
+        background:@btn-switch-default-background-hover;
+        color:@btn-switch-default-color; 
+        text-decoration:none;
+    }
+}
+
+@btn-switch-green-color:#ffffff;
+@btn-switch-green-background:#5cb85c;
+@btn-switch-green-background-hover:#4cae4c;
+
+.btn-switch-green{
+    background: @btn-switch-green-background;
+    color:@btn-switch-green-color;
+    .btn-switch-spot{
+        background:@btn-switch-green-color;
+        &:hover{
+            background:#fff7f7;
+        }
+    }
+    &:hover{
+        background:@btn-switch-green-background-hover;
+        color:@btn-switch-green-color; 
+        text-decoration:none;
+    }
+}
+
+@btn-switch-red-color:#ffffff;
+@btn-switch-red-background:#d9534f;
+@btn-switch-red-background-hover:#d43f3a;
+
+.btn-switch-red{
+    background: @btn-switch-red-background;
+    color:@btn-switch-red-color;
+    .btn-switch-spot{
+        background:@btn-switch-red-color;
+        &:hover{
+            background:#fff7f7;
+        }
+    }
+    &:hover{
+        background:@btn-switch-red-background-hover;
+        color:@btn-switch-red-color; 
+        text-decoration:none;
+    }
+}
+
+@btn-switch-yellow-color:#ffffff;
+@btn-switch-yellow-background:#f0ad4e;
+@btn-switch-yellow-background-hover:#eea236;
+
+.btn-switch-yellow{
+    background: @btn-switch-yellow-background;
+    color:@btn-switch-yellow-color;
+    .btn-switch-spot{
+        background:@btn-switch-yellow-color;
+        &:hover{
+            background:#fff7f7;
+        }
+    }
+    &:hover{
+        background:@btn-switch-yellow-background-hover;
+        color:@btn-switch-yellow-color; 
+        text-decoration:none;
+    }
+}
+
+@btn-switch-violet-color:#ffffff;
+@btn-switch-violet-background:#9c27b0;
+@btn-switch-violet-background-hover:#89239a;
+
+.btn-switch-violet{
+    background: @btn-switch-violet-background;
+    color:@btn-switch-violet-color;
+    .btn-switch-spot{
+        background:@btn-switch-violet-color;
+        &:hover{
+            background:#fff7f7;
+        }
+    }
+    &:hover{
+        background:@btn-switch-violet-background-hover;
+        color:@btn-switch-violet-color; 
+        text-decoration:none;
+    }
+}
+
+@btn-switch-blue-color:#ffffff;
+@btn-switch-blue-background:#2196f3;
+@btn-switch-blue-background-hover:#1d7cc7;
+
+.btn-switch-blue{
+    background: @btn-switch-blue-background;
+    color:@btn-switch-blue-color;
+    .btn-switch-spot{
+        background:@btn-switch-blue-color;
+        &:hover{
+            background:#fff7f7;
+        }
+    }
+    &:hover{
+        background:@btn-switch-blue-background-hover;
+        color:@btn-switch-blue-color; 
+        text-decoration:none;
+    }
+}
+
+@btn-switch-brown-color:#ffffff;
+@btn-switch-brown-background:#795548;
+@btn-switch-brown-background-hover:#5a3f35;
+
+.btn-switch-brown{
+    background: @btn-switch-brown-background;
+    color:@btn-switch-brown-color;
+    .btn-switch-spot{
+        background:@btn-switch-brown-color;
+        &:hover{
+            background:#fff7f7;
+        }
+    }
+    &:hover{
+        background:@btn-switch-brown-background-hover;
+        color:@btn-switch-brown-color; 
+        text-decoration:none;
+    }
+}
+
+
+
+// 个性化定制开关
+
+@perpersonality-switch-width:100px;
+@perpersonality-switch-height:40px;
+.personality-switch-one{
+    width:@perpersonality-switch-width;
+    height:@perpersonality-switch-height;
+    background:linear-gradient(left top,#eeeeee,#fff);
+    border:1px solid #eeeeee;
+    border-radius:25px;
+    position: relative;
+    .personality-s-o-content{
+        width:(@perpersonality-switch-width)-10;
+        height:(@perpersonality-switch-height)-10;
+        border-radius:25px;
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+        border:2px solid #e5e6e6;
+        background:#eee;
+        a{
+            text-align:center;
+            color:#999;
+            line-height:(@perpersonality-switch-height)-14;
+            cursor:pointer;
+            font-size:12px;
+            border:1px solid #dedcdc;
+            &:hover{
+                text-decoration:none;
+            }
+        }
+        .switch-left{
+            width:((@perpersonality-switch-width)-14)/2;
+            height:(@perpersonality-switch-height)-14;
+            border-right:1px solid #e5e6e6;
+            position:absolute;
+            left:0;
+            border-top-left-radius:25px;
+            border-bottom-left-radius:25px;
+        }
+        .switch-right{
+            width:((@perpersonality-switch-width)-14)/2;
+            height:(@perpersonality-switch-height)-14;
+            position:absolute;
+            top:0;
+            right:0;
+            border-top-right-radius:25px;
+            border-bottom-right-radius:25px;
+        }
+        .switch-left-active{
+            background:#f9f9f9;
+            transform:rotateY(25deg);
+        }
+    }
+}

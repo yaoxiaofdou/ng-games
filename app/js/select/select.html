@@ -1,0 +1,159 @@
+<div class="container">
+    <h2>Select</h2>
+    <div class="row" ng-controller="AssemblySelect">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <select ng-model="Assemblyselected" ng-options="m.productName for m in selectdata">
+                <option value="">---你要来一发吗---</option>
+            </select>    
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+            <label>选择的是：</label><span>{{Assemblyselected}}</span>
+        </div>
+    </div>
+    <br/>
+    <div class="row" ng-controller="Selectulli">
+        <div>
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 dropdown" ng-init="optionDiv.isActive = false;">
+                <button type="button" style="outline:none;" class="btn {{btncolor}} Assembly-Select" id="dropdownMenu1" data-toggle="dropdownOptions" ng-click="optionDiv.isActive =! optionDiv.isActive;">
+                    {{bsselectedvalue}}
+                    <span class="caret"></span>
+                </button>
+                <ul ng-if="optionDiv.isActive" class="dropdownOptions" role="menu" aria-labelledby="dropdownMenu1" ng-model="selected">
+                    <li role="presentation" data-ng-repeat="m in selectdata" ng-click="bsselectedFun(m);optionDiv.isActive =! optionDiv.isActive;">
+                        <a role="menuitem" tabindex={{m.id}}>{{m.productName}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <label>选择的是：</label>
+                <span>{{bsoptioned}}</span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h2>Select 年月日联动(默认option版)</h2>
+    <div class="row" ng-controller="AssemblyDataSelect">
+        <div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-12 col-md-1 col-lg-1 control-label">出生日期</label>
+                <div>
+                    <label class="col-xs-7 col-sm-2 col-md-2 col-lg-2">
+                        年：
+                        <select required="" name="datayear" ng-model="dataselects" class="form-control" ng-options="s.year for s in datalists">
+                            <option value="">--请选择--</option>
+                        </select>
+                    </label>
+                    <label class="col-xs-7 col-sm-2 col-md-2 col-lg-2" ng-show="dataselects.mouths.length">
+                        月：
+                        <select required="" name="datamouth" ng-model="dataselects1" class="form-control" ng-options="sh.mouth for sh in dataselects.mouths">
+                             <option value="">--请选择--</option>
+                        </select>
+                    </label>
+                    <label class="col-xs-7 col-sm-2 col-md-2 col-lg-2" ng-show="dataselects1.day.length">
+                        日：
+                        <select required="" name="dataday" ng-model="dataselects2" class="form-control" ng-options="x.day for x in dataselects1.day">
+                             <option value="">--请选择--</option>
+                        </select>
+                    </label>                       
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label>选择的时间是：</label>{{dataselects.year}} {{dataselects1.mouth}} {{dataselects2.day}}
+        </div>
+    </div>
+    <hr>
+    <br/>
+    <h2>Select 省市联动(默认option版)</h2>
+    <div class="row" ng-controller="AssemblyLinkageSelect">
+        <div>
+            <label class="col-xs-7 col-sm-2 col-md-2 col-lg-2" ng-class="{error: error.province}" >
+                省份：
+                <select ng-model="selected" class="form-control" ng-options="s.name for s in list" ng-change="c()" >
+                    <option value="">--请选择--</option>
+                </select>
+            </label>
+            <label class="col-xs-7 col-sm-2 col-md-2 col-lg-2" ng-show="selected.child.length" ng-class="{error: error.city}">
+                市/区：
+                <select ng-model="selected2" class="form-control" ng-options="sh.name for sh in selected.child" ng-change="c2()" >
+                     <option value="">--请选择--</option>
+                </select>
+            </label>
+            <label class="col-xs-7 col-sm-2 col-md-2 col-lg-2" ng-show="selected2.child.length" ng-class="{error: error.area}">
+                县级/区域：
+                <select ng-model="selected3" class="form-control" ng-options="x.value for x in selected2.child" ng-change="c3()" >
+                     <option value="">--请选择--</option>
+                </select>
+            </label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <input type="submit" class="btn btn-primary" style="outline:none;" value="确认" ng-click="submit()" />
+                <input type="submit" class="btn btn-warning" style="outline:none;" value="确认" ng-click="submit()" />
+                <input type="submit" class="btn btn-info" style="outline:none;" value="确认" ng-click="submit()" />
+                <input type="submit" class="btn btn-success" style="outline:none;" value="确认" ng-click="submit()" />
+                <input type="submit" class="btn btn-danger" style="outline:none;" value="确认" ng-click="submit()" />
+                <input type="submit" class="btn btn-default" style="outline:none;" value="确认" ng-click="submit()" />
+            </span>            
+            <br />
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label>选择的地址是：</label>{{selected.name}} {{selected2.name}} {{selected3.value}}
+            </div>
+        </div> 
+    </div>
+    <hr>
+    <h2>Select 省市联动(ul-li版)</h2>
+    <div class="row" ng-controller="AssemblyLinkageSelect" ng-init="dropdownUlLi.one = false;dropdownUlLi.two = false;dropdownUlLi.three = false;">
+        <div class="col-xs-7 col-sm-2 col-md-2 col-lg-2">
+            <div class="dropdown">
+                <label>
+                    <span>省份:</span>
+                    <button type="button" ng-model="LinkageSelected" style="outline:none;" class="btn btn-info Assembly-Select" id="dropdownMenu1" data-toggle="dropdown" ng-click="dropdownUlLi.one =! dropdownUlLi.one;">
+                        {{LinkageSelectValue}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown dropdownOptions" ng-if="dropdownUlLi.one" role="menu" aria-labelledby="dropdownMenu1" ng-model="selected">
+                        <li role="presentation"  data-ng-repeat="s in list" ng-click="LinkageSelectFun(s);dropdownUlLi.two = true;">
+                            <a role="menuitem" tabindex={{s.id}}>{{s.name}}</a>
+                        </li>
+                    </ul>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-7 col-sm-2 col-md-2 col-lg-2">
+            <div class="dropdown">
+                <label>
+                    <span>市/区:</span>
+                    <button type="button" style="outline:none;" class="btn btn-info Assembly-Select" id="dropdownMenu1" data-toggle="dropdown">
+                        {{LinkageSelectValueChild}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown dropdownOptions" ng-if="dropdownUlLi.two" role="menu" aria-labelledby="dropdownMenu1" ng-model="selected">
+                        <li role="presentation" data-ng-repeat="s in ChildArray" ng-click="LinkageSelectChildFun(s);dropdownUlLi.three = true;dropdownUlLi.two = false;">
+                            <a role="menuitem" tabindex={{s.id}}>{{s.name}}</a>
+                        </li>
+                    </ul>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-7 col-sm-3 col-md-2 col-lg-3">
+            <div class="dropdown">
+                <label>
+                    <span>县/区：</span>
+                    <button type="button" style="outline:none;" class="btn btn-info Assembly-Select" id="dropdownMenu1" data-toggle="dropdown">
+                        {{LinkageSelectValueChildTwo}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown dropdownOptions" ng-if="dropdownUlLi.three" role="menu" aria-labelledby="dropdownMenu1" ng-model="selected">
+                        <li role="presentation" data-ng-repeat="s in childTwoArray" ng-click="LinkageSelectChildTwoFun(s);dropdownUlLi.three = false;">
+                            <a role="menuitem" value={{s.value}}>{{s.value}}</a>
+                        </li>
+                    </ul>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <label>选择的地址是：</label>
+            <span>{{LinkageSelectValue+" "+LinkageSelectValueChild+" "+LinkageSelectValueChildTwo}}</span>            
+        </div>
+    </div>       
+</div>

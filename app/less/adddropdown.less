@@ -1,0 +1,88 @@
+/*
+*
+*     xiaofeng.yao     2016.9.18     addtab.html
+*
+*/
+.btn{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn-orange{
+    color: #fff;
+    background-color: #ffaa09;
+    border-color: #ffaa09;
+    outline: none!important;
+}
+.btn-sq{
+    padding: 6px 12px;
+    display: inline-block;
+    border: 1px solid orange;
+    color: orange;
+    text-align: center;
+    -moz-user-select: none;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    max-width: 14em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/*
+*
+*     xiaofeng.yao     添加轮播图样式    2016.9.18
+*
+*/
+.fabric-addcarousel{
+  min-width:400px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  clear:both;
+  .well-white{
+    height:150px;
+    overflow-y: scroll;
+    border:1px solid #ccc;
+    ul{
+      width:100%;
+      li{
+        width:100%;
+        height:25px;
+        line-height:25px;
+        a{
+          color:#565656;
+        }
+      }
+    }
+    &:first-child{
+      overflow:hidden;
+    }
+  }
+}

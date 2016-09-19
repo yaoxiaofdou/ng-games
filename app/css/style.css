@@ -1,0 +1,643 @@
+/*
+*
+*     xiaofeng.yao     2016.9.18     addtab.html
+*
+*/
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn-orange {
+  color: #fff;
+  background-color: #ffaa09;
+  border-color: #ffaa09;
+  outline: none!important;
+}
+.btn-sq {
+  padding: 6px 12px;
+  display: inline-block;
+  border: 1px solid orange;
+  color: orange;
+  text-align: center;
+  -moz-user-select: none;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  max-width: 14em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/*
+*
+*     xiaofeng.yao     添加轮播图样式    2016.9.18
+*
+*/
+.fabric-addcarousel {
+  min-width: 400px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  clear: both;
+}
+.fabric-addcarousel .well-white {
+  height: 150px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+}
+.fabric-addcarousel .well-white ul {
+  width: 100%;
+}
+.fabric-addcarousel .well-white ul li {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+}
+.fabric-addcarousel .well-white ul li a {
+  color: #565656;
+}
+.fabric-addcarousel .well-white:first-child {
+  overflow: hidden;
+}
+/*
+*
+*     xiaofeng.yao     2016.9.18     add tab
+*
+*/
+.AddtabNav {
+  width: 600px;
+  height: auto;
+  outline: 1px solid #ccc;
+  overflow: hidden;
+}
+.AddtabNav ul li {
+  float: left;
+  list-style: none;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background: #ccc;
+}
+.AddtabNav ul li:hover {
+  background: #999;
+  cursor: pointer;
+}
+.clicknav ul li {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  list-style: none;
+}
+.clicknav ul li:hover {
+  background: #ccc;
+}
+/*
+ *
+ *     xiaofeng.yao     2015.8.15     select
+ *
+ */
+.Assembly-Select {
+  position: relative;
+}
+label {
+  padding: 5px 10px;
+  border: 1px solid #fff;
+}
+.error {
+  border-color: #f00;
+}
+.dropdownOptions {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  background: #fff;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 4px #999;
+          box-shadow: 1px 1px 4px #999;
+  position: absolute;
+  top: 100%;
+  z-index: 999;
+}
+.dropdownOptions li {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  list-style: none;
+  cursor: pointer;
+  padding-left: 20px;
+}
+.dropdownOptions li:hover {
+  background: #eee;
+}
+.dropdownOptions li:hover a {
+  color: #428bca;
+}
+.dropdownOptions li a {
+  color: #999;
+  text-decoration: none;
+}
+/*
+*
+*     xiaofeng.yao     2016.8.16     switch 
+*
+*/
+.btn-switch {
+  display: inline-block;
+  width: 70px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #eee;
+  -webkit-border-radius: 25px;
+          border-radius: 25px;
+  text-align: center;
+  position: relative;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+.btn-switch .btn-switch-spot {
+  display: inline;
+  width: 36px;
+  height: 36px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.btn-switch-left {
+  left: 2px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: #c9cdd0 !important;
+}
+.btn-switch-right {
+  left: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.btn-switch-default {
+  background: #5bc0de;
+  color: #ffffff;
+}
+.btn-switch-default .btn-switch-spot {
+  background: #ffffff;
+}
+.btn-switch-default .btn-switch-spot:hover {
+  background: #fff7f7;
+}
+.btn-switch-default:hover {
+  background: #46b8da;
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn-switch-green {
+  background: #5cb85c;
+  color: #ffffff;
+}
+.btn-switch-green .btn-switch-spot {
+  background: #ffffff;
+}
+.btn-switch-green .btn-switch-spot:hover {
+  background: #fff7f7;
+}
+.btn-switch-green:hover {
+  background: #4cae4c;
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn-switch-red {
+  background: #d9534f;
+  color: #ffffff;
+}
+.btn-switch-red .btn-switch-spot {
+  background: #ffffff;
+}
+.btn-switch-red .btn-switch-spot:hover {
+  background: #fff7f7;
+}
+.btn-switch-red:hover {
+  background: #d43f3a;
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn-switch-yellow {
+  background: #f0ad4e;
+  color: #ffffff;
+}
+.btn-switch-yellow .btn-switch-spot {
+  background: #ffffff;
+}
+.btn-switch-yellow .btn-switch-spot:hover {
+  background: #fff7f7;
+}
+.btn-switch-yellow:hover {
+  background: #eea236;
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn-switch-violet {
+  background: #9c27b0;
+  color: #ffffff;
+}
+.btn-switch-violet .btn-switch-spot {
+  background: #ffffff;
+}
+.btn-switch-violet .btn-switch-spot:hover {
+  background: #fff7f7;
+}
+.btn-switch-violet:hover {
+  background: #89239a;
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn-switch-blue {
+  background: #2196f3;
+  color: #ffffff;
+}
+.btn-switch-blue .btn-switch-spot {
+  background: #ffffff;
+}
+.btn-switch-blue .btn-switch-spot:hover {
+  background: #fff7f7;
+}
+.btn-switch-blue:hover {
+  background: #1d7cc7;
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn-switch-brown {
+  background: #795548;
+  color: #ffffff;
+}
+.btn-switch-brown .btn-switch-spot {
+  background: #ffffff;
+}
+.btn-switch-brown .btn-switch-spot:hover {
+  background: #fff7f7;
+}
+.btn-switch-brown:hover {
+  background: #5a3f35;
+  color: #ffffff;
+  text-decoration: none;
+}
+.personality-switch-one {
+  width: 100px;
+  height: 40px;
+  background: -webkit-gradient(linear, left top, right bottom, from(#eeeeee), to(#fff));
+  background: -webkit-linear-gradient(left top, #eeeeee, #fff);
+  background: linear-gradient(left top, #eeeeee, #fff);
+  border: 1px solid #eeeeee;
+  -webkit-border-radius: 25px;
+          border-radius: 25px;
+  position: relative;
+}
+.personality-switch-one .personality-s-o-content {
+  width: 90px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+          border-radius: 25px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 2px solid #e5e6e6;
+  background: #eee;
+}
+.personality-switch-one .personality-s-o-content a {
+  text-align: center;
+  color: #999;
+  line-height: 26px;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #dedcdc;
+}
+.personality-switch-one .personality-s-o-content a:hover {
+  text-decoration: none;
+}
+.personality-switch-one .personality-s-o-content .switch-left {
+  width: 43px;
+  height: 26px;
+  border-right: 1px solid #e5e6e6;
+  position: absolute;
+  left: 0;
+  -webkit-border-top-left-radius: 25px;
+          border-top-left-radius: 25px;
+  -webkit-border-bottom-left-radius: 25px;
+          border-bottom-left-radius: 25px;
+}
+.personality-switch-one .personality-s-o-content .switch-right {
+  width: 43px;
+  height: 26px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-border-top-right-radius: 25px;
+          border-top-right-radius: 25px;
+  -webkit-border-bottom-right-radius: 25px;
+          border-bottom-right-radius: 25px;
+}
+.personality-switch-one .personality-s-o-content .switch-left-active {
+  background: #f9f9f9;
+  -webkit-transform: rotateY(25deg);
+          transform: rotateY(25deg);
+}
+/*
+*
+*     xiaofeng.yao     2016.9.9     中秋博饼less
+*
+*/
+.dice-div {
+  margin-top: 3rem;
+}
+.dice-div ul li {
+  width: 5rem;
+  height: 5rem;
+  background: #000;
+  list-style: none;
+  display: inline-table;
+}
+.dice-div ul li img {
+  width: 100%;
+  height: 100%;
+}
+.dice-h3 {
+  font-size: 3rem;
+}
+.w5c-form input:focus:focus,
+.w5c-form textarea:focus:focus,
+.w5c-form select:focus:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  color: #000000;
+}
+.w5c-form input:focus:focus.error,
+.w5c-form textarea:focus:focus.error,
+.w5c-form select:focus:focus.error {
+  border-color: #b94a48;
+  -webkit-box-shadow: 0 0 6px #f8b9b7;
+  box-shadow: 0 0 6px #f8b9b7;
+}
+.w5c-form input.error,
+.w5c-form textarea.error,
+.w5c-form select.error {
+  border-color: #b94a48;
+  -webkit-box-shadow: 0 0 6px #f8b9b7;
+  box-shadow: 0 0 6px #f8b9b7;
+}
+.w5c-form .dropdown-menu {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.w5c-form .alert {
+  margin-bottom: 0px;
+}
+.w5c-form .w5c-error {
+  color: #b94a48;
+  display: block;
+  margin-top: 5px;
+}
+/*
+*
+*     xiaofeng.yao     2016.8.16     Angular main less
+*
+*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.expander {
+  border: 1px solid black;
+  width: 250px;
+}
+.expander .title {
+  background-color: black;
+  color: white;
+  padding: .1em .3em;
+  cursor: pointer;
+}
+.expander .body {
+  padding: .1em .3em;
+}
+/*
+  路由跳转 渐入动画
+*/
+.reveal-animation.ng-enter {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  opacity: 0;
+}
+.reveal-animation.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.reveal-animation.ng-leave {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  opacity: 1;
+}
+.reveal-animation.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.mainnav {
+  width: 220px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+.mainnav .mainnav-title {
+  width: 100%;
+  height: 110px;
+  text-align: center;
+  border-right: 1px solid #eee;
+}
+.mainnav .mainnav-title h4 {
+  line-height: 122.22222222px;
+  color: #00bcd4;
+}
+.mainnav ul li {
+  list-style: none;
+}
+.mainnav ul li a:hover {
+  color: #00bcd4;
+}
+.mainnav ul li .addicon {
+  float: right;
+}
+.mainnav ul li .list-group-li {
+  width: 200px;
+  margin-left: 20px;
+  height: auto;
+}
+.mainnav ul li .list-group-li li:hover {
+  margin-left: 10px;
+}
+.mainnav ul li .addgroupli {
+  border-left: 5px solid #00bcd4;
+  margin-left: 10px;
+}
+.main-view-div {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  overflow-y: scroll;
+  left: 220px;
+}
+/*
+*
+*     xiaofeng.yao     2016.8.25     alert
+*
+*/
+.AlertImgDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.AlertImgDiv .AlertImgMask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  z-index: 5;
+}
+.AlertImgDiv img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 6;
+}
+.showimgMask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+.showimgMask .alertimg {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 3;
+  -webkit-animation: showimg 1s;
+          animation: showimg 1s;
+}
+@-webkit-keyframes showimg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes showimg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*
+ *
+ *     xiaofeng.yao     2015.8.15     tab
+ *
+ */
+.Assembly-Tab {
+  width: 320px;
+  height: 200px;
+  border-bottom: 1px solid #00bcd4;
+}
+.Assembly-Tab .tab-title {
+  width: 320px;
+  height: 40px;
+}
+.Assembly-Tab .tab-title ul li {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  list-style: none;
+  display: inline-table;
+  cursor: pointer;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  background: #00bcd4;
+  color: #fff;
+}
+.Assembly-Tab .tab-title ul li:hover {
+  background: #0492a5 !important;
+}
+.Assembly-Tab .tab-title ul li:last-child {
+  border-right: none;
+}
+.Assembly-Tab .tabActive {
+  background: #0492a5 !important;
+}
+.Assembly-Tab .tabshow {
+  display: block;
+}
+.Assembly-Tab .tab-content li {
+  width: 100%;
+  line-height: 25px;
+  list-style: none;
+}
+.Assembly-Tab .tab-content li a {
+  cursor: pointer;
+}

@@ -1,0 +1,102 @@
+<div class="container">
+    <h2>Tab</h2>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <h4>Tab (ng-switch版)</h4>
+            <span>便捷，简单</span>
+            <div class="Assembly-Tab">
+                <div class="tab-title" ng-init="switchtab = 1;">
+                    <ul>
+                        <li ng-click="switchtab = 1;" ng-class='[switchtab === 1 ? "tabActive" : null ]'>tab1</li><!--
+                     --><li ng-click="switchtab = 2;" ng-class='[switchtab === 2 ? "tabActive" : null ]'>tab2</li><!--
+                     --><li ng-click="switchtab = 3;" ng-class='[switchtab === 3 ? "tabActive" : null ]'>tab3</li><!--
+                     --><li ng-click="switchtab = 4;" ng-class='[switchtab === 4 ? "tabActive" : null ]'>tab4</li>
+                    </ul>
+                </div>
+                <div ng-switch on="switchtab">
+                    <div class="tab-content" ng-switch-default>
+                        tab1
+                    </div>
+                    <div class="tab-content" ng-switch-when="2">
+                        tab2
+                    </div>
+                    <div class="tab-content" ng-switch-when="3">
+                        tab3
+                    </div>
+                    <div class="tab-content" ng-switch-when="4">
+                        tab4
+                    </div>
+                </div>              
+            </div>
+        </div>       
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <h4>Tab( ng-if版tab )</h4>
+            <span>通过 ng-if 实现的tab---------<strong>(最优方案)</strong></span>
+            <div class="Assembly-Tab" ng-init="iftab.tab = 1;">
+                <div class="tab-title">
+                    <ul>
+                        <li ng-click="iftab.tab = 1"  ng-class='[iftab.tab === 1 ? "tabActive" : null ]'>it1</li><!--
+                     --><li ng-click="iftab.tab = 2" ng-class='[iftab.tab === 2 ? "tabActive" : null ]'>it2</li><!--
+                     --><li ng-click="iftab.tab = 3" ng-class='[iftab.tab === 3 ? "tabActive" : null ]'>it3</li><!--
+                     --><li ng-click="iftab.tab = 4" ng-class='[iftab.tab === 4 ? "tabActive" : null ]'>it4</li>
+                    </ul>
+                </div>
+                <div class="tab-content" ng-if="iftab.tab == 1">
+                    it1
+                </div>
+                <div class="tab-content" ng-if="iftab.tab == 2">
+                    it2
+                </div>
+                <div class="tab-content" ng-if="iftab.tab == 3">
+                    it3
+                </div>
+                <div class="tab-content" ng-if="iftab.tab == 4">
+                    it4
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row" ng-controller="RouterTab">
+        <div class="col-sm-6 col-md-6 col-lg-6" ng-controller="AssemblyTab">
+
+            <h4>Tab( 数据改变版 )</h4><span>完美搭配简单的改变数据</span>
+            <br/>
+            <div class="Assembly-Tab">
+                <div class="tab-title">
+                    <ul>
+                        <li ng-init="tabtitle[$index=0].isActive = true;" ng-class="{ true : 'tabActive' , false : null}[ m.isActive ]" data-ng-repeat="m in tabtitle" ng-click="tabclearshwo(tabtitle,m);m.isActive = 'true';">
+                            {{m.title}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <ul>
+                        <li data-ng-repeat="m in showcontent">
+                            <a>
+                                {{m.aid+'.&nbsp;'+m.atitle}}
+                            </a>   
+                        </li>
+                    </ul>
+                </div>
+            </div>    
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <h4>Tab( 路由切换版 )</h4><span>可适应更多的样式定制</span>
+            <div class="Assembly-Tab">
+                <div class="tab-title">
+                    <ul>
+                        <li ui-sref={{rou.href}} ng-class="{ true : 'tabActive' , false : null}[ rou.isActive ]" data-ng-repeat="rou in routertabtitle" ng-click="Routertabclearshwo(routertabtitle,rou);rou.isActive = 'true';">
+                            {{rou.title}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div ui-view="">
+                        
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>

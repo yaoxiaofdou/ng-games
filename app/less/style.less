@@ -1,0 +1,103 @@
+/*
+*
+*     xiaofeng.yao     2016.8.16     Angular main less
+*
+*/
+html,body{
+    width:100%;
+    height:100%;
+    font-size:12px;
+}
+*{
+    margin:0;
+    padding:0;
+}
+.expander {
+    border: 1px solid black;
+    width: 250px;
+    .title{
+        background-color: black;
+        color: white;
+        padding: .1em .3em;
+        cursor: pointer;
+    }
+    .body{
+        padding: .1em .3em;
+    }
+}
+
+/*
+  路由跳转 渐入动画
+*/
+.reveal-animation.ng-enter {
+    transition:0.5s linear all;
+    opacity:0;
+}
+.reveal-animation.ng-enter.ng-enter-active {
+    opacity:1;
+}
+.reveal-animation.ng-leave {
+    transition:0.5s linear all;
+    opacity:1;
+}
+.reveal-animation.ng-leave.ng-leave-active {
+    opacity:0;
+}
+
+
+// Nav class
+@nav-width:220px;
+@nav-li-background:#00bcd4;
+@nav-li-border:5px solid #00bcd4;
+.mainnav{
+    width:@nav-width;
+    height:100%;
+    position:absolute;
+    top:0;
+    .mainnav-title{
+        width:100%;
+        height:(@nav-width)/2;
+        text-align:center;
+        border-right:1px solid #eee;
+        h4{
+            line-height:(@nav-width)/1.8;
+            color:@nav-li-background;
+        }
+    }
+    ul{
+        li{
+            list-style:none;
+            a{
+                &:hover{
+                    color:@nav-li-background;
+                }
+            }
+            .addicon{
+                float:right;
+            }
+            .list-group-li{
+                width:(@nav-width)-20;
+                margin-left:20px;
+                height:auto;
+                li{
+                    &:hover{
+                        margin-left:10px;
+                    }
+                }
+            }
+            .addgroupli{
+                border-left:@nav-li-border;
+                margin-left:10px;
+            }
+        }   
+    }
+}
+
+.main-view-div{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    overflow-y:scroll;
+    left:@nav-width;
+}

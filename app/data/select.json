@@ -1,0 +1,39 @@
+﻿[
+   {
+        "id": 1001,
+        "sex": "男",
+        "btncolor": "btn-info",
+        "productName": "长白山T恤",
+        "productColor": "蓝"
+    }, {
+        "id": 1002,
+        "sex": "女",
+        "btncolor": "btn-danger",
+        "productName": "红姑娘T恤",
+        "productColor": "红"
+    }, {
+        "id": 1003,
+        "sex": "男",
+        "btncolor": "btn-warning",
+        "productName": "黄铜T恤",
+        "productColor": "黄"
+    }, {
+        "id": 1004,
+        "sex": "女",
+        "btncolor": "btn-primary",
+        "productName": "碧海帽",
+        "productColor": "天蓝色"
+    }, {
+        "id": 1005,
+        "sex": "男",
+        "btncolor": "btn-success",
+        "productName": "绿悠悠帽",
+        "productColor": "绿"
+    }, {
+        "id": 1006,
+        "sex": "女",
+        "btncolor": "btn-default",
+        "productName": "透明羽绒服",
+        "productColor": "白"
+    }
+]

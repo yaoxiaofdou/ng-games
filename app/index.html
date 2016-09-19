@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AppDemo">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- 引用 iconfont 图标 -->
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1472712428_4269056.css">
+    <!-- 引用 bootstrap -->
+    <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引用 ui-calendar -->
+    <link rel="stylesheet" type="text/css" href="./asset/js/angular-ui-calendar/fullcalendar.min.css"/>
+    <!-- 引用 object-table -->
+    <link rel="stylesheet" type="text/css" href="./asset/js/angular-object-table/object-table-style.css">
+    <!-- 引用 sweetalert -->
+    <link rel="stylesheet" type="text/css" href="./asset/js/angular-sweetalert/sweetalert.css">
+      <!--  引用下面可以改变 sweetalert 的样式
+        <link rel="stylesheet" type="text/css" href="./asset/js/angular-sweetalert/themes/google/google.css">
+        <link rel="stylesheet" type="text/css" href="./asset/js/angular-sweetalert/themes/twitter/twitter.css">
+        <link rel="stylesheet" type="text/css" href="./asset/js/angular-sweetalert/themes/facebook/facebook.css"> 
+      -->
+    <!-- 引用 ng-Dialog -->
+    <link rel="stylesheet" type="text/css" href="./asset/js/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" type="text/css" href="./asset/js/ng-dialog/css/ngDialog-theme-plain.min.css">
+    <link rel="stylesheet" type="text/css" href="./asset/js/ng-dialog/css/ngDialog-theme-default.min.css">
+
+</head>
+<body>
+    <!-- router nav-->
+    <index-nav></index-nav>
+    <div class="main-view-div">
+        <div ui-view class="reveal-animation"></div>
+    </div> 
+
+    <!-- 引用 bootstrap jquery  -->
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+<!--     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <!-- 引用 angular ui-router  ui-calendar angular-animate angular-touch angular-ui-boorstrap -->
+    <script src="./asset/js/angular/angular.js"></script>
+    <script src="./asset/js/angular-animate/angular-animate.min.js"></script>
+    <script src="./asset/js/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="./asset/js/angular-touch/angular-touch.min.js"></script>
+    <script src="./asset/js/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <!-- 引用 angular-resource -->
+    <script src="./asset/js/angular-resource/angular-resource.min.js"></script>
+    <!-- 引用 ui-calendar -->
+    <script src="./asset/js/angular-ui-calendar/angular-ui-calendar.js"></script>
+    <script src="./asset/js/angular-ui-calendar/moment.min.js"></script>
+    <script src="./asset/js/angular-ui-calendar/fullcalendar.min.js"></script>
+    <script src="./asset/js/angular-ui-calendar/gcal.js"></script>
+    <!-- 引用 w5c-Validator -->
+    <script src="./asset/js/angular-w5cValidator/w5cValidator.min.js"></script>
+    <!-- 引用 object-table -->
+    <script src="./asset/js/angular-object-table/object-table.js"></script>
+    <!-- 引用 sweetalert -->
+    <script src="./asset/js/angular-sweetalert/sweetalert.min.js"></script>
+    <!-- 引用 angular-chart -->
+    <script src="./asset/js/angular-chart/Chart.js"></script>
+    <!-- 引用 ng-Dialog -->
+    <script src="./asset/js/ng-dialog/js/ngDialog.min.js"></script>
+    <!-- 引用 页面控制 JS  -->
+    <script src="./app.js"></script>
+    <script src="./build.js"></script>
+</body>
+</html>

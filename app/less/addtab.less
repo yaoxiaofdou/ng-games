@@ -1,0 +1,43 @@
+/*
+*
+*     xiaofeng.yao     2016.9.18     add tab
+*
+*/
+@addtab-nav-width:600px;
+@addtab-nav-height:30px;
+.AddtabNav{
+    width:@addtab-nav-width;
+    height:auto;
+    outline:1px solid #ccc;
+    overflow:hidden;
+    ul{
+        li{
+            float:left;
+            list-style:none;
+            text-align:center;
+            height:@addtab-nav-height;
+            line-height:@addtab-nav-height;
+            background: #ccc;
+            &:hover{
+                background: #999;
+                cursor:pointer;
+            }
+        }
+    }
+}
+
+.clicknav{
+    ul{
+        li{
+            width:80px;
+            height:@addtab-nav-height;
+            line-height:@addtab-nav-height;
+            text-align:center;
+            cursor:pointer;
+            list-style:none;
+            &:hover{
+                background:#ccc;
+            }
+        }
+    }
+}

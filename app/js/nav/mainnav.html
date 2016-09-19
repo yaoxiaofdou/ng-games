@@ -1,0 +1,15 @@
+<div ng-controller="mainnav" class="mainnav">
+    <div class="mainnav-title">
+        <h4>Assembly & Bootstrap</h4>
+    </div>
+    <ul class="list-group">
+        <li data-ng-repeat="list in lists" ng-click="listsubcomponent();list.isActive=!list.isActive;">
+            <a class="list-group-item">
+                <i class="iconfont {{list.icon}}"></i>&nbsp;&nbsp;
+                {{list.link}}
+                <span ng-class="['glyphicon','addicon', !list.isActive ?'glyphicon-plus':'glyphicon-minus']"></span>
+            </a>
+            <listsubcomponent></listsubcomponent>
+        </li>
+    </ul>
+</div>

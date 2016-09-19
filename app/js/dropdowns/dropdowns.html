@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Assembly Dropdowns</h2>
+    <div class="row" ng-controller="Assemblydropdowns">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-controller="Assemblydropdowns as dropdownone">
+            <h4>xs-2</h4>
+            <dropdowns  classname="btn-success" 
+                        optionclass="list-group-item" 
+                        name="dropdowns" 
+                        options="red,green,blue,pink">
+            </dropdowns>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-controller="Assemblydropdowns as dropdowntwo">
+            <h4>xs-3,可以传入字符串</h4>
+            <p>options="飞机,坦克,大炮,自行车"</p>
+            <dropdowns  classname="btn-default" 
+                        optionclass="list-group-item" 
+                        name="交通工具" 
+                        options="飞机,坦克,大炮,自行车">
+            </dropdowns>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-controller="Assemblydropdowns as dropdownthree">
+            <h4>xs-4,也可以传入一段JSON路径</h4>
+            <p>dataurl="data/select.json"</p>
+            <dropdowns  classname="btn-info" 
+                        optionclass="list-group-item"
+                        name="中午吃啥"
+                        dataurl="data/select.json">
+            </dropdowns>
+        </div>
+    </div>
+</div>

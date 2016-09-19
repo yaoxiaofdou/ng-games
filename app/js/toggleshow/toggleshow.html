@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row" ng-controller="togglecontrolle">
+        <div>
+            <expander class="expander" expander-title='title'>
+                {{text}}
+            </expander>
+        </div>
+        <div>
+            <h3>{{timertitle}}</h3>
+            <p>{{countNum}}</p>
+            <input type="button" class="btn btn-info" value="click me" ng-click="countDown();"/>
+        </div>
+    </div>
+</div>

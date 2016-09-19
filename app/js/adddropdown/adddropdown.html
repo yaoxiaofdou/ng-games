@@ -1,0 +1,53 @@
+<div class="container" ng-controller="adddropdowncontroller">
+    <div class="row">
+        <h3>dropdown-多(可删)</h3>
+        
+        <!-- 关联面料（自定义） --> 
+        
+        <!-- 关联面料 -->
+    <div class="form-group" ng-init="addtabcontroller.isshow = false;">
+        <label class="col-md-2 control-label required">关联面料：</label>
+        <div class="col-md-10">
+            <div>
+                <ul class="list-unstyled">
+                    <li class="btn-sq has-close ng-binding ng-scope" ng-repeat="navli in fabricArray">
+                        {{navli}}
+                        <span class="close select-search-list-item_selection-remove" ng-click="delete($index)">x</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-orange" ng-click="addtabcontroller.isshow =! addtabcontroller.isshow;">选择面料类型<span class="caret"></span></button>
+            <div class="fabric-addcarousel" ng-if="addtabcontroller.isshow" menu-input>
+                <div class="sel-fbi-menu-left col-md-4 well-white">
+                    <ul class="list-unstyled">
+                        <li class="sel-item ng-scope" ng-repeat="fabricname in fabric_list">
+                            <a class="ng-binding" style="cursor:pointer;" ng-click="clickfabric(fabricname);">{{fabricname.fabric}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sel-fbi-menu-left col-md-4 well-white">
+                    <ul class="list-unstyled">
+                        <li class="sel-item ng-scope" ng-repeat="twoli in fabrictwolist">
+                            <a class="ng-binding" ng-click="fabricLi(twoli)">{{twoli.one}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sel-fbi-menu-left col-md-4 well-white">
+                    <ul class="list-unstyled">
+                        <li class="sel-item ng-scope" ng-repeat="threeli in fabricthreelist">
+                            <a class="ng-binding" ng-click="fabricaddarray();">{{threeli}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-orange" ng-click="addtabcontroller.isshow = false;">确定</button>
+                    <button class="btn btn-default" ng-click="addtabcontroller.isshow = false;">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+
+    </div>
+</div>

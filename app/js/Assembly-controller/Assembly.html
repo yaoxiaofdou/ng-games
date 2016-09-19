@@ -1,0 +1,77 @@
+<div class="container" ng-controller="Assembly">
+    <br/>
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+            {{message}}
+            </div>
+        </div>
+        <br/>
+        <h3>number+number</h3>
+        <div class="col-xs-12">
+            <div class="input-group">
+                <input type="number" class="form-control" ng-model="firstnumber" placeholder="Number One" />
+            </div>
+            <span>+</span>
+            <div class="input-group">
+                <input type="number" class="form-control" ng-model="lastnumber" placeholder="Number Two" />    
+            </div>
+            <span>=</span>
+            <label>{{firstnumber+lastnumber}}</label>
+        </div>
+    </div>
+    <div class="row" ng-controller="selectctrl">
+        <h3>ng-true-value="'Y'+'E'+'S'";ng-false-value="'N'+'O'"</h3>
+        <div ng-repeat="sport in sports">
+            <div>
+                <label ng-bind="sport.label"></label>
+            </div>
+            width binding:
+            <input type="checkbox" ng-model="sport.selected" ng-true-value="'Y'+'E'+'S'" ng-false-value="'N'+'O'"/>
+            using ng-checked:
+            <input type="checkbox" ng-checked="sport.selected === 'YES'" />
+            <div>
+                Current state:{{sport.selected}}
+            </div>
+        </div>
+        <h3>select 中用 track by 比较ID，而不是比较对象引用</h3>
+        <select ng-model="selectedCountry" ng-options="s.label for s in sports track by s.id">
+        </select>
+        <p>ID:{{selectedCountry.id}}</p>
+    </div>
+    <div class="row" ng-controller="MainCtrl as mainCtrl">
+        <h1>hello controllers!</h1>
+        <button ng-click="mainCtrl.open('first')">open first</button>
+        <button ng-click="mainCtrl.open('second')">open second</button>
+        <div ng-switch on="mainCtrl.tab">
+            <div ng-switch-when="first">
+                <div ng-controller="SubCtrl as ctrl">
+                    <h3>First tab</h3>
+                    <ul>
+                        <li ng-repeat="item in ctrl.list()">
+                            <span ng-bind="item.label"></span>
+                        </li>
+                    </ul>
+
+                    <button ng-click="ctrl.add()">
+                        Add More Items
+                    </button>
+                </div>
+            </div>
+            <div ng-switch-when="second">
+                <div ng-controller="SubCtrl as ctrl">
+                    <h3>Second tab</h3>
+                    <ul>
+                        <li ng-repeat="item in ctrl.list()">
+                            <span ng-bind="item.label"></span>
+                        </li>
+                    </ul>
+
+                    <button ng-click="ctrl.add()">
+                        Add More Items
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

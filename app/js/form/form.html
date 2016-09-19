@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>login form</h2>
+    <div class="row" ng-controller="loginform">
+        <div class="col-xs-5">
+            <form class="form-horizontal w5c-form demo-form" role="form" w5c-form-validate="vm.validateOptions" novalidate name="validateForm"> 
+                <div class="form-group"> 
+                    <label for="firstname" class="col-sm-2 control-label">Email</label> 
+                    <div class="col-sm-10"> 
+                        <input type="email" name="email" ng-model="vm.entity.email" required="" class="form-control" placeholder="输入邮箱">
+                    </div>
+                </div> 
+                <div class="form-group"> 
+                    <label for="lastname" class="col-sm-2 control-label">Password</label> 
+                    <div class="col-sm-10"> 
+                        <input type="password" required="" ng-model="vm.entity.password" name="password" class="form-control" ng-minlength="8" ng-maxlength="15" placeholder="输入密码">
+                    </div> 
+                </div> 
+                <div class="form-group"> 
+                    <div class="col-sm-offset-2 col-sm-10"> 
+                        <div class="checkbox"> 
+                            <label> 
+                                <input type="checkbox">请记住我 
+                            </label> 
+                        </div> 
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10"> 
+                        <button type="submit" w5c-form-submit="vm.saveEntity($event)" ng-click="loginsubmit();" class="btn btn-default">登录</button>
+                        <a href="#/registerform" class="btn btn-success">注册</a> 
+                    </div>
+                </div>
+            </form>
+            <div>
+                <h5>{{user}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

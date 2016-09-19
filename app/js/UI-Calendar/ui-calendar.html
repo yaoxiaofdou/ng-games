@@ -1,0 +1,70 @@
+<div class="container" ng-controller="calendarDemoApp">
+    <h2>UI-Calendar</h2>
+    <div class="row">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-info" ng-click="changeLang()">ChangeLang</button>
+        </div>
+        <div class="col-xs-8">
+            <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <br>
+            <br>
+            <h2>Add Events</h2>
+            <form class="form-inline col-xs-12" role="form">
+                <div class="form-group col-xs-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">@&nbsp;标题</span>
+                        <input type="text" class="form-control" ng-model="addEvent.title" placeholder="输入活动标题" />
+                    </div>
+                    <h4>输入开始时间</h4>
+                    <div class="form-group col-xs-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="addEvent.start.day" placeholder="几号" />
+                            <span class="input-group-addon">日</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="addEvent.start.hour" placeholder="几时" />
+                            <span class="input-group-addon">时</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <div class="input-group">                            
+                            <input type="text" class="form-control" ng-model="addEvent.start.minute" placeholder="几分" />
+                            <span class="input-group-addon">分</span>
+                        </div>
+                    </div>
+                    <br><br>
+                    <h4>输入结束时间</h4>
+                    <div class="form-group col-xs-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="addEvent.end.day" placeholder="几号" />
+                            <span class="input-group-addon">日</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="addEvent.end.hour" placeholder="几时" />
+                            <span class="input-group-addon">时</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <div class="input-group">                            
+                            <input type="text" class="form-control" ng-model="addEvent.end.minute" placeholder="几分" />
+                            <span class="input-group-addon">分</span>
+                        </div>
+                    </div>          
+                </div>
+                <div class="form-group col-xs-12">
+                    <br>
+                    <button type="button" class="btn btn-primary" ng-click="addEvent();">AddEvents</button>
+                    <button type="button" class="btn btn-danger" ng-click="remove();">RemoveEvents</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

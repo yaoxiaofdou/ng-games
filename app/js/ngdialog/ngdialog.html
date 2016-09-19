@@ -1,0 +1,105 @@
+<div class="container">
+    <h2>ng-Dialog</h2>
+    <div class="row" ng-controller="ngdialogctrl">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <h4>选择判断(默认弹窗)</h4>
+            <button class="btn btn-info" ng-click="dialogbtntwo();">click me</button>    
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <h4>选择判断(自制弹窗)</h4>
+            <button class="btn btn-info" ng-click="ifdialogbtn();">click me</button>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <h4>弹出一句话</h4>
+            <button class="btn btn-info" ng-click="dialogbtnthree();">click me</button>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <h4>重点提示</h4>
+            <button class="btn btn-info" ng-click="dialogbtnfour();">click me</button>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <h4>修改手机提示窗</h4>
+            <button class="btn btn-info" ng-click="dialogbtnfive();">click me</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="templateId">
+    <h1>标题</h1>
+    <p>内容(可以设定图片，文字等等)</p>
+</script>
+
+<script type="text/ng-template" id="externalTemplate.html">
+    <p>External scope: <code>{{value}}</code></p>
+</script>
+
+<script type="text/ng-template" id="modifyMobileDialogTemplate">
+
+    <div ng-init="phoneshowdiv.phone = 1;">
+        <!-- 原手机号码 -->
+        <div ng-if="phoneshowdiv.phone == 1;">
+            <div class="ngdialog-message">
+                <h3>修改手机号码</h3>
+                <div class="row">
+                    <form class="form-horizontal" style="padding:16px 16px;">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">原手机号:</label>
+                            <div class="col-md-5">
+                                <input class="form-control" ng-model="newMobile" type="text">
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-info" ng-disabled="countDown"> 
+                                    获取验证码
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">验证码:</label>
+                            <div class="col-md-5">
+                                <input class="form-control" ng-model="verifyCode" type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="ngdialog-buttons">
+                <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-dialog-close-previous
+                        ng-click="phoneshowdiv.phone = 2;">下一步
+                </button>
+            </div>      
+        </div>
+        <!-- 新手机号码 -->
+        <div ng-if="phoneshowdiv.phone == 2;">
+            <div class="ngdialog-message">
+                <h3>修改手机号码</h3>
+                <div class="row">
+                    <form class="form-horizontal" style="padding:16px 16px;">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">新手机号:</label>
+                            <div class="col-md-5">
+                                <input class="form-control" ng-model="newMobile" type="text">
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-info" ng-disabled="countDown"> 
+                                    获取验证码
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">验证码:</label>
+                            <div class="col-md-5">
+                                <input class="form-control" ng-model="verifyCode" type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="ngdialog-buttons">
+                <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-dialog-close-previous
+                        ng-click="phoneshowdiv.phone = 1;">上一步
+                </button>
+            </div>      
+        </div>        
+    </div>
+
+</script>

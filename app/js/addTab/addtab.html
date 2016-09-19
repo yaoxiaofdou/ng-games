@@ -1,0 +1,24 @@
+<div class="container" ng-controller="addtabcontroller">
+    <div class="row">
+        <h3>add tab</h3>
+        
+        <div class="AddtabNav">
+            <ul>
+                <li ng-repeat="tab in tabArray">
+                    {{tab}}
+                </li>
+            </ul>
+        </div>
+        <div class="NavContent">
+            
+        </div>
+        <div class="clicknav">
+            <ul>
+                <li ng-click="clicknavli(tab);" ng-repeat="tab in AddtabNav">
+                    {{tab}}
+                </li>
+            </ul>    
+        </div>
+
+    </div>
+</div>

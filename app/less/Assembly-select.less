@@ -1,0 +1,49 @@
+/*
+ *
+ *     xiaofeng.yao     2015.8.15     select
+ *
+ */
+
+.Assembly-Select{
+    position:relative;
+}
+label {
+    padding: 5px 10px;
+    border: 1px solid #fff;
+}
+.error {        
+    border-color: #f00;
+}
+
+
+@select-ul-width:100%;
+@select-ul-background:#fff;
+.dropdownOptions{
+    width:@select-ul-width;
+    height:auto;
+    border:1px solid #eee;
+    background: #fff;
+    border-radius:5px;
+    box-shadow:1px 1px 4px #999;
+    position:absolute;
+    top:100%;
+    z-index:999;
+    li{
+        width:100%;
+        height:30px;
+        line-height:30px;
+        list-style:none;
+        cursor:pointer;
+        padding-left:20px;
+        &:hover{
+            background:#eee;
+            a{
+                color:#428bca;
+            }
+        }
+        a{
+            color:#999;
+            text-decoration:none;
+        }
+    }
+}

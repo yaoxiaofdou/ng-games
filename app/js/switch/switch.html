@@ -1,0 +1,77 @@
+<div class="container" ng-controller="AssemblySwitch">
+    <h2>滑动 Switch</h2>
+    <div class="row">
+        <div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                <h3>默认Switch</h3>
+                <div ng-class="{true:'btn-switch',false:'btn-switch btn-switch-default'}[!default.isActive]">
+                    <a class="btn-switch-spot" ng-class="[!default.isActive ? 'btn-switch-left' : 'btn-switch-right']" ng-click="default.isActive = !default.isActive;"></a>
+                </div>
+                <h4>状态：{{default.isActive}}</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                <h3>绿色Switch</h3>
+                <div ng-class="{true:'btn-switch',false:'btn-switch btn-switch-green'}[!green.isActive]">
+                    <a class="btn-switch-spot" ng-class="[!green.isActive ? 'btn-switch-left' : 'btn-switch-right']" ng-click="green.isActive = !green.isActive;"></a>
+                </div>
+                <h4>状态：{{green.isActive}}</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                <h3>红色Switch</h3>
+                <div ng-class="{true:'btn-switch',false:'btn-switch btn-switch-red'}[!red.isActive]">
+                    <a class="btn-switch-spot" ng-class="[!red.isActive ? 'btn-switch-left' : 'btn-switch-right']" ng-click="red.isActive = !red.isActive;"></a>
+                </div>
+                <h4>状态：{{red.isActive}}</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                <h3>黄色Switch</h3>
+                <div ng-class="{true:'btn-switch',false:'btn-switch btn-switch-yellow'}[!yellow.isActive]">
+                    <a class="btn-switch-spot" ng-class="[!yellow.isActive ? 'btn-switch-left' : 'btn-switch-right']" ng-click="yellow.isActive = !yellow.isActive;"></a>
+                </div>
+                <h4>状态：{{yellow.isActive}}</h4>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                <h3>紫色Switch</h3>
+                <div ng-class="{true:'btn-switch',false:'btn-switch btn-switch-violet'}[!violet.isActive]">
+                    <a class="btn-switch-spot" ng-class="[!violet.isActive ? 'btn-switch-left' : 'btn-switch-right']" ng-click="violet.isActive = !violet.isActive;"></a>
+                </div>
+                <h4>状态：{{violet.isActive}}</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                <h3>海蓝Switch</h3>
+                <div ng-class="{true:'btn-switch',false:'btn-switch btn-switch-blue'}[!blue.isActive]">
+                    <a class="btn-switch-spot" ng-class="[!blue.isActive ? 'btn-switch-left' : 'btn-switch-right']" ng-click="blue.isActive = !blue.isActive;"></a>
+                </div>
+                <h4>状态：{{blue.isActive}}</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                <h3>棕色Switch</h3>
+                <div ng-class="{true:'btn-switch',false:'btn-switch btn-switch-brown'}[!brown.isActive]">
+                    <a class="btn-switch-spot" ng-class="[!brown.isActive ? 'btn-switch-left' : 'btn-switch-right']" ng-click="brown.isActive = !brown.isActive;"></a>
+                </div>
+                <h4>状态：{{brown.isActive}}</h4>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="row">
+        <h2>点击 switch</h2>
+        <div class="col-xs-12">
+            <div class="col-xs-2" ng-controller="personalityswitchone">
+                <div class="personality-switch-one">
+                    <div class="personality-s-o-content">
+                        <a class="{{m.switchclass}}" ng-class="{ true :null , false : 'switch-left-active'}[ m.isActive ]" data-ng-repeat="m in psswitch" ng-click="psswitchclick(psswitch,m);m.isActive = 'true';">
+                            {{m.title}}
+                        </a>
+                    </div>
+                </div>
+                <h3>状态:{{psswitchone}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

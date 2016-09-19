@@ -1,0 +1,58 @@
+/*
+*
+*     xiaofeng.yao     2016.8.25     alert
+*
+*/
+.AlertImgDiv{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    .AlertImgMask{
+        position:absolute;
+        width:100%;
+        height:100%;
+        background:#000;
+        opacity:0.7;
+        z-index:5;
+    }
+    img{
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto;
+        z-index:6;
+    }
+}
+
+.showimgMask{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background:rgba(0,0,0, 0.3);
+    z-index:2;
+    .alertimg{
+        width:30%;
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto;
+        z-index:3;
+        animation:showimg 1s;
+    }
+}
+@keyframes showimg{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
