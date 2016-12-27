@@ -1,0 +1,5 @@
+{
+	"rules": {
+		"no-dupe-keys": 0		/*template code sometimes has one key for classic, one for unstyled*/
+	}
+}

@@ -1,176 +1,5 @@
 /*
 *
-*     xiaofeng.yao     2016.9.18     addtab.html
-*
-*/
-.btn {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: normal;
-  text-align: center;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  white-space: nowrap;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  -webkit-border-radius: 0;
-          border-radius: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.btn-orange {
-  color: #fff;
-  background-color: #ffaa09;
-  border-color: #ffaa09;
-  outline: none!important;
-}
-.btn-sq {
-  padding: 6px 12px;
-  display: inline-block;
-  border: 1px solid orange;
-  color: orange;
-  text-align: center;
-  -moz-user-select: none;
-  margin-right: 10px;
-  margin-bottom: 5px;
-  max-width: 14em;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-/*
-*
-*     xiaofeng.yao     添加轮播图样式    2016.9.18
-*
-*/
-.fabric-addcarousel {
-  min-width: 400px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  list-style: none;
-  font-size: 14px;
-  text-align: left;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  -webkit-border-radius: 0;
-          border-radius: 0;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  clear: both;
-}
-.fabric-addcarousel .well-white {
-  height: 150px;
-  overflow-y: scroll;
-  border: 1px solid #ccc;
-}
-.fabric-addcarousel .well-white ul {
-  width: 100%;
-}
-.fabric-addcarousel .well-white ul li {
-  width: 100%;
-  height: 25px;
-  line-height: 25px;
-}
-.fabric-addcarousel .well-white ul li a {
-  color: #565656;
-}
-.fabric-addcarousel .well-white:first-child {
-  overflow: hidden;
-}
-/*
-*
-*     xiaofeng.yao     2016.9.18     add tab
-*
-*/
-.AddtabNav {
-  width: 600px;
-  height: auto;
-  outline: 1px solid #ccc;
-  overflow: hidden;
-}
-.AddtabNav ul li {
-  float: left;
-  list-style: none;
-  text-align: center;
-  height: 30px;
-  line-height: 30px;
-  background: #ccc;
-}
-.AddtabNav ul li:hover {
-  background: #999;
-  cursor: pointer;
-}
-.clicknav ul li {
-  width: 80px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  cursor: pointer;
-  list-style: none;
-}
-.clicknav ul li:hover {
-  background: #ccc;
-}
-/*
- *
- *     xiaofeng.yao     2015.8.15     select
- *
- */
-.Assembly-Select {
-  position: relative;
-}
-label {
-  padding: 5px 10px;
-  border: 1px solid #fff;
-}
-.error {
-  border-color: #f00;
-}
-.dropdownOptions {
-  width: 100%;
-  height: auto;
-  border: 1px solid #eee;
-  background: #fff;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
-  -webkit-box-shadow: 1px 1px 4px #999;
-          box-shadow: 1px 1px 4px #999;
-  position: absolute;
-  top: 100%;
-  z-index: 999;
-}
-.dropdownOptions li {
-  width: 100%;
-  height: 30px;
-  line-height: 30px;
-  list-style: none;
-  cursor: pointer;
-  padding-left: 20px;
-}
-.dropdownOptions li:hover {
-  background: #eee;
-}
-.dropdownOptions li:hover a {
-  color: #428bca;
-}
-.dropdownOptions li a {
-  color: #999;
-  text-decoration: none;
-}
-/*
-*
 *     xiaofeng.yao     2016.8.16     switch 
 *
 */
@@ -379,6 +208,120 @@ label {
           transform: rotateY(25deg);
 }
 /*
+ *
+ *     xiaofeng.yao     2015.8.15     select
+ *
+ */
+.Assembly-Select {
+  position: relative;
+}
+label {
+  padding: 5px 10px;
+  border: 1px solid #fff;
+}
+.error {
+  border-color: #f00;
+}
+.dropdownOptions {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  background: #fff;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 4px #999;
+          box-shadow: 1px 1px 4px #999;
+  position: absolute;
+  top: 100%;
+  z-index: 999;
+}
+.dropdownOptions li {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  list-style: none;
+  cursor: pointer;
+  padding-left: 20px;
+}
+.dropdownOptions li:hover {
+  background: #eee;
+}
+.dropdownOptions li:hover a {
+  color: #428bca;
+}
+.dropdownOptions li a {
+  color: #999;
+  text-decoration: none;
+}
+/*
+*
+*     xiaofeng.yao     2016.9.18     add tab
+*
+*/
+.AddtabNav {
+  width: 600px;
+  height: 30px;
+  outline: 1px solid #ccc;
+  overflow: hidden;
+}
+.AddtabNav ul li {
+  float: left;
+  list-style: none;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background: #ccc;
+}
+.AddtabNav ul li:hover {
+  background: #999;
+  cursor: pointer;
+}
+.clicknav ul li {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  list-style: none;
+}
+.clicknav ul li:hover {
+  background: #ccc;
+}
+/*
+*
+*#     xiaofeng.yao     2016.9.21     ng dialog less
+*
+*/
+.dailogimgdivstyle .ngdialog-content {
+  width: 450px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.dailogimgdivstyle .ngdialog-content .dialogimg {
+  width: 450px;
+  height: 600px;
+  margin: 0 auto;
+  z-index: 10;
+}
+.dailogimgdivstyle .ngdialog-content .ngdialog-close {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  bottom: none;
+  left: none;
+  margin: auto;
+  font-size: 40px;
+  color: #999;
+}
+.dailogimgdivstyle .ngdialog-content .ngdialog-close:hover {
+  color: #fff;
+}
+/*
 *
 *     xiaofeng.yao     2016.9.9     中秋博饼less
 *
@@ -399,6 +342,80 @@ label {
 }
 .dice-h3 {
   font-size: 3rem;
+}
+/*
+*
+*#     xiaofeng.yao     2016.9.30     imgenlarge
+*
+*/
+.imgenlarge_section {
+  position: relative;
+}
+.imgenlarge_section .imgenlarge_active {
+  width: 200px;
+  height: 150px;
+  -webkit-box-shadow: 0 0 16px #999;
+          box-shadow: 0 0 16px #999;
+  display: inline-block;
+  position: absolute;
+}
+.imgenlarge_section .imgenlarge_active img {
+  width: 100%;
+  height: 100%;
+  cursor: hand;
+}
+.imgenlarge_section .imgenlarge_active .mousemovediv {
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+}
+.imgenlarge_section .imgenlarge_active .enlargeMouse {
+  width: 40px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+}
+.imgenlarge_section .maximg_active {
+  width: 400px;
+  height: 300px;
+  border: 1px dashed #999;
+  overflow: hidden;
+  display: inline-block;
+  position: absolute;
+  left: 210px;
+  -webkit-box-shadow: 5px 5px 16px #999;
+          box-shadow: 5px 5px 16px #999;
+}
+.imgenlarge_section .maximg_active img {
+  width: 2000px;
+  height: 1500px;
+  position: absolute;
+}
+/*
+*
+*#     xiaofeng.yao     2016.9.29     input search 
+*
+*/
+.search-list {
+  border: 1px solid #999;
+  -webkit-box-shadow: 0 0 1px #000;
+          box-shadow: 0 0 1px #000;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.search-list li {
+  list-style: none;
+  cursor: pointer;
+  padding: 0 15px;
+}
+.search-list li:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+.list-Active {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
 }
 .w5c-form input:focus:focus,
 .w5c-form textarea:focus:focus,
@@ -499,7 +516,12 @@ body {
   line-height: 122.22222222px;
   color: #00bcd4;
 }
+.mainnav .mainnav-title img {
+  width: 100px;
+  height: 100px;
+}
 .mainnav ul li {
+  position: relative;
   list-style: none;
 }
 .mainnav ul li a:hover {
@@ -509,16 +531,67 @@ body {
   float: right;
 }
 .mainnav ul li .list-group-li {
-  width: 200px;
-  margin-left: 20px;
+  overflow: hidden;
+  width: 220px;
+  padding-left: 20px;
   height: auto;
 }
 .mainnav ul li .list-group-li li:hover {
   margin-left: 10px;
 }
 .mainnav ul li .addgroupli {
-  border-left: 5px solid #00bcd4;
   margin-left: 10px;
+  border: 3px solid transparent;
+}
+.mainnav ul li .addgroupli:before {
+  content: '';
+  display: block;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid #00bcd4;
+  position: absolute;
+  left: -35px;
+  top: -8px;
+  z-index: 2;
+}
+.mainnav ul li .addgroupli:after {
+  content: '';
+  width: 100px;
+  height: 25px;
+  -webkit-transform-origin: 100px 25px;
+      -ms-transform-origin: 100px 25px;
+          transform-origin: 100px 25px;
+  background-color: #00bcd4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-animation: navBorderMove 3s infinite linear;
+          animation: navBorderMove 3s infinite linear;
+}
+@-webkit-keyframes navBorderMove {
+  from {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    opacity: 0.2;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes navBorderMove {
+  from {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    opacity: 0.2;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 .main-view-div {
   width: 100%;
@@ -640,4 +713,111 @@ body {
 }
 .Assembly-Tab .tab-content li a {
   cursor: pointer;
+}
+/*
+*
+*     xiaofeng.yao     2016.9.18     addtab.html
+*
+*/
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn-orange {
+  color: #fff;
+  background-color: #ffaa09;
+  border-color: #ffaa09;
+  outline: none!important;
+}
+.btn-sq {
+  padding: 6px 12px;
+  display: inline-block;
+  border: 1px solid orange;
+  color: orange;
+  text-align: center;
+  -moz-user-select: none;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  max-width: 14em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/*
+*
+*     xiaofeng.yao     添加轮播图样式    2016.9.18
+*
+*/
+.fabric-addcarousel {
+  min-width: 400px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  clear: both;
+}
+.fabric-addcarousel .well-white {
+  height: 150px;
+  overflow-y: scroll;
+  padding: 0;
+}
+.fabric-addcarousel .well-white ul {
+  width: 100%;
+}
+.fabric-addcarousel .well-white ul li {
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  padding-left: 20px;
+}
+.fabric-addcarousel .well-white ul li a {
+  color: #565656;
+}
+.fabric-addcarousel .well-white:first-child {
+  overflow: hidden;
+}
+.tree-active ul li {
+  list-style: none;
+  cursor: pointer;
+}
+.li-active {
+  background: #f5f5f5;
+}
+.tree-active ul li {
+  position: relative;
+}
+.tree-active ul li input {
+  position: absolute;
+  top: -1px;
+  left: -18px;
 }

@@ -60,6 +60,35 @@ appdemo.controller('ngdialogctrl', ['$scope', 'ngDialog', function($scope, ngDia
     $scope.dialogbtnfive = function() {
         ngDialog.open({
             template: 'modifyMobileDialogTemplate'
-        })
+        });
     }
+
+    $scope.dialogimg = function() {
+        ngDialog.open({
+            template: 'dailogimgdiv.html',
+            className: 'dailogimgdivstyle'
+        });
+    };
+    // 绘制图片
+    var drawImageFun = function() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = new Images();
+        img.src = '../app/images/007.png';
+        img.onload = function() {
+            ctx.drawImage(img, 10, 10);
+        }
+    };
+    // 点击弹出事件
+    $scope.dialogbtncanvas = function() {
+
+        ngDialog.open({
+            template: 'dailogcanvasdiv.html'
+        });
+
+        drawImageFun();
+    }
+
+
+
 }]);

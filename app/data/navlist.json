@@ -21,6 +21,34 @@
         "componenticon": "icon-icon8",
         "componentname": "dropdowns",
         "componenthref": "#/dropdowns"
+    }, {
+        "componenticon": "icon-25",
+        "componentname": "树",
+        "componenthref": "#/adddropdown"
+    },  {
+        "componenticon": "icon-gird",
+        "componentname": "表格/Gird",
+        "componenthref": "#/gird"
+    }, {
+        "componenticon": "icon-button",
+        "componentname": "input-type",
+        "componenthref": "#/input-type"
+    }, {
+        "componenticon": "icon-search",
+        "componentname": "input-search",
+        "componenthref": "#/input-search"
+    }, {
+        "componenticon": "icon-chakantupianfangdajing",
+        "componentname": "图片放大器",
+        "componenthref": "#/img-enlarge"
+    }, {
+        "componenticon": "icon-gouwuche",
+        "componentname": "购物车",
+        "componenthref": "#/shoppingcart"
+    }, {
+        "componenticon": "icon-map",
+        "componentname": "地图",
+        "componenthref": "#/map"
     }]
 }, {
     "link": "UI-Bootstrap",
@@ -125,6 +153,10 @@
     "icon": "icon-componentc",
     "href": "#/components",
     "subcomponent": [{
+        "componenticon": "icon-1",
+        "componentname": "文件上传",
+        "componenthref": "#/file-upload"
+    }, {
         "componenticon": "icon-calendar",
         "componentname": "UI-Calendar",
         "componenthref": "#/ui-calendar"
@@ -164,11 +196,7 @@
         "componenthref": "#/togglecontrolle"
     }, {
         "componenticon": "icon-25",
-        "componentname": "dropdown-多(可删)",
-        "componenthref": "#/adddropdown"
-    }, {
-        "componenticon": "icon-25",
-        "componentname": "addtab",
+        "componentname": "缩放tab",
         "componenthref": "#/addtab"
     }, {
         "componenticon": "icon-ceshiyong",

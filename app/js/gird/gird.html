@@ -1,0 +1,93 @@
+<div ng-controller="assemblyGird">
+    <h3>Gird</h3>
+    <hr>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="margin-bottom:10px;">
+      <div class="input-group pull-right global-search">
+        <label class="input-group-addon">单页搜索</label>
+        <input type="text" class="form-control" ng-model="gird.filter.$"/>
+      </div>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">姓名</th>
+                    <th class="text-center">粉丝</th>
+                    <th class="text-center">收入</th>
+                    <th class="text-center">信息</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in gird.girdlists[ currentPage - 1 ] | filter:gird.filter.$">
+                <td>
+                  {{item.id}}
+                  <span class="btn btn-primary btn-xs pull-right" title="编辑" 
+                        ng-if="!item.$editing"  ng-click="item.$editing = true;">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                  </span>
+                  <span class="btn btn-primary btn-xs pull-right" title="保存" ng-if="item.$editing"
+                        ng-click="item.$editing = false ;">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                  </span>
+                </td>
+                <td class="text-center">
+                  <div ng-if="!item.$editing">
+                    {{item.name}}
+                  </div>
+                  <div ng-if="item.$editing">
+                    <input type="text" class="form-control" ng-model="item.name"/>
+                  </div>
+                </td>
+                <td class="text-right">
+                  <div ng-if="!item.$editing">
+                    {{item.fens|number}}
+                  </div>
+                  <div ng-if="item.$editing">
+                    <input type="number" class="form-control" ng-model="item.fens"/>
+                  </div>
+                </td>
+                <td class="text-right">
+                  <div ng-if="!item.$editing">
+                    {{item.income|currency}}
+                  </div>
+                  <div ng-if="item.$editing">
+                    <input type="number" class="form-control" ng-model="item.income"/>
+                  </div>
+                </td>
+                <td style="position:relative;">
+                  <span class="btn btn-primary btn-xs" title="详情" ng-mouseenter="item.popover=true" ng-mouseleave="item.popover=false">
+                    <i class="glyphicon glyphicon-comment"></i>
+                  </span>
+                  <div style="width:300px;position:absolute;top:0;left:40px;">
+                    <div class="popover" ng-style="{display: item.popover?'block':'none'}">
+                      <div class="popover-title">
+                        {{item.id}} - {{item.name}}
+                      </div>
+                      <div class="popover-content">
+                        粉丝：&nbsp;{{item.fens|number}}<br/>
+                        生日：&nbsp;{{item.birthday|date}}<br/>
+                        年龄：&nbsp;{{item.age|number}} 岁<br/>
+                        收入：&nbsp;{{item.income|currency:'¥'}}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        <div class="row">
+          <div class="col-md-8">
+            <ul uib-pagination  boundary-links="true"
+                                direction-links="false"
+                                items-per-page="girdselect" 
+                                max-size="maxSize"
+                                rotate="false"
+                                num-pages="numPages"
+                                total-items="totalItems" 
+                                ng-model="currentPage"></ul>
+
+          </div>
+        </div>
+    </div>
+</div>

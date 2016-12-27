@@ -1,111 +1,5 @@
 /*
  *
- *     xiaofeng.yao     2016.9.18     add dropdown - duo
- *
- */
-appdemo.controller('adddropdowncontroller', ['$scope', function($scope) {
-    // 关联面料菜单
-    $scope.fabric_list = [{
-        fabric: '按产品标签',
-        sub_menu: [{
-            one: '冬装',
-            list: [
-                '大衣'
-            ]
-        }, {
-            one: '春装',
-            list: [
-                '长袖'
-            ]
-        }, {
-            one: '夏装',
-            list: [
-                '短袖'
-            ]
-        }]
-    }, {
-        fabric: '按面料类型',
-        sub_menu: [{
-            one: '坯布',
-            list: [
-                '全棉坯布',
-                '化纤坯布',
-                '人棉坯布'
-            ]
-        }, {
-            one: '皮/革',
-            list: [
-                '真皮'
-            ]
-        }, {
-            one: '丝绸',
-            list: [
-                '真丝滑',
-                '假的'
-            ]
-        }, {
-            one: '其他面料',
-            list: [
-                '真的',
-                '假的'
-            ]
-        }, {
-            one: '化纤面料',
-            list: [
-                '真丝',
-                '假丝'
-            ]
-        }]
-    }];
-
-    $scope.clickfabric = function(dataobj) {
-        $scope.fabrictwolist = dataobj.sub_menu;
-        $scope.fabricthreelist = null;
-    };
-    $scope.fabricLi = function(dataobj) {
-        $scope.fabricthreelist = dataobj.list;
-    };
-    $scope.fabricArray = [];
-    $scope.fabricaddarray = function() {
-        var threeli = this.threeli;
-        // 重复不添加
-        if ($scope.fabricArray.indexOf(threeli) == -1) {
-            $scope.fabricArray.push(threeli);
-        }
-        console.log($scope.fabricArray);
-    };
-    // 关闭nav li 标签
-    $scope.delete = function(i) {
-        $scope.fabricArray.splice(i, 1);
-    };
-}]);
-/*
- *
- *     xiaofeng.yao     2016.9.14     add tab
- *
- */
-appdemo.controller('addtabcontroller', ['$scope', '$http', function($scope, $http) {
-    $scope.AddtabNav = ['101', '202', '303', '404', '505', '606', '701', '702', '703', '704', '705', '706', '707', '708', '709'];
-    $scope.tabArray = [];
-    $scope.clicknavli = function(obj) {
-        var navWidth = 600,
-            maxWidth;
-        if ($scope.tabArray.length < 6) {
-            maxWidth = 120;
-            console.log(maxWidth);
-        } else if () {
-
-        } else {
-            maxWidth = navWidth / $scope.tabArray.length;
-            console.log(maxWidth);
-        }
-        if ($scope.tabArray.indexOf(obj) == -1) {
-            $scope.tabArray.push(obj);
-        }
-    }
-}]);
-/*
- *
  *     xiaofeng.yao     2015.8.15     toggleshow module
  *
  */
@@ -122,8 +16,6 @@ appdemo.controller("selectctrl",function($scope){
 	    {id:4,label:'Swimming',selected:'YES'}
     ];
 });
-
-
 
 // 自定义服务测试
 appdemo.controller("MainCtrl",[function(){
@@ -220,6 +112,48 @@ appdemo.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'js/dropdowns/dropdowns.html',
             controller: "Assemblydropdowns"
         })
+        // input-type
+        .state("input-type", {
+            url: '/input-type',
+            templateUrl: 'js/input-type/input-type.html',
+            controller: ""
+        })
+        // input-search
+        .state("input-search", {
+            url: '/input-search',
+            templateUrl: 'js/input-search/input-search.html',
+            controller: ""
+        })
+        // img-enlarge
+        .state("img-enlarge", {
+            url: '/img-enlarge',
+            templateUrl: 'js/imgenlarge/imgenlarge.html',
+            controller: ""
+        })
+        // shoppingcart
+        .state("shoppingcart", {
+            url: '/shoppingcart',
+            templateUrl: 'js/shoppingcart/shoppingcart.html',
+            controller: ""
+        })
+        // file upload
+        .state("file-upload", {
+            url: '/file-upload',
+            templateUrl: 'js/file-upload/file-upload.html',
+            controller: ""
+        })
+        // map
+        .state("map", {
+            url: '/map',
+            templateUrl: 'js/map/map.html',
+            controller: ""
+        })
+        // gird
+        .state("gird", {
+            url: '/gird',
+            templateUrl: 'js/gird/gird.html',
+            controller: ""
+        })
         // toggle 页面路由
         .state("togglecontrolle", {
             url: '/togglecontrolle',
@@ -234,7 +168,7 @@ appdemo.config(function($stateProvider, $urlRouterProvider) {
         .state("adddropdown", {
             url: '/adddropdown',
             templateUrl: 'js/adddropdown/adddropdown.html',
-            controller: 'adddropdowncontroller'
+            controller: ''
         })
         // ui-bootstrap 页面路由
         .state("uibootstrap-button", {
@@ -534,6 +468,360 @@ appdemo.controller("validateCtrl", ["$scope", "$http", function($scope, $http) {
 }]);
 /*
  *
+ *     calendarDemoApp - 0.9.0     2016.8.24     calendar
+ *
+ */
+appdemo.controller('calendarDemoApp', function($scope, $compile, uiCalendarConfig) {
+  var date = new Date();
+  var d = date.getDate();
+  var m = date.getMonth();
+  var y = date.getFullYear();
+
+  $scope.changeTo = 'Hungarian';
+  /* event source that pulls from google.com */
+  $scope.eventSource = {
+    url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+    className: 'gcal-event', // an option!
+    currentTimezone: 'America/Chicago' // an option!
+  };
+  /* event source that contains custom events on the scope */
+  $scope.events = [{
+    title: 'All Day Event',
+    start: new Date(y, m, 1)
+  }, {
+    title: 'Long Event',
+    start: new Date(y, m, d - 5),
+    end: new Date(y, m, d - 2)
+  }, {
+    id: 999,
+    title: 'Repeating Event',
+    start: new Date(y, m, d - 3, 16, 0),
+    allDay: false
+  }, {
+    id: 999,
+    title: 'Repeating Event',
+    start: new Date(y, m, d + 4, 16, 0),
+    allDay: false
+  }, {
+    title: 'Birthday Party',
+    start: new Date(y, m, d + 1, 19, 0),
+    end: new Date(y, m, d + 1, 22, 30),
+    allDay: false
+  }, {
+    title: 'Click for Google',
+    start: new Date(y, m, 28),
+    end: new Date(y, m, 29),
+    url: 'http://google.com/'
+  }];
+  /* event source that calls a function on every view switch */
+  $scope.eventsF = function(start, end, timezone, callback) {
+    var s = new Date(start).getTime() / 1000;
+    var e = new Date(end).getTime() / 1000;
+    var m = new Date(start).getMonth();
+    var events = [{
+      title: 'Feed Me ' + m,
+      start: s + (50000),
+      end: s + (100000),
+      allDay: false,
+      className: ['customFeed']
+    }];
+    callback(events);
+  };
+
+  $scope.calEventsExt = {
+    color: '#f00',
+    textColor: 'yellow',
+    events: [{
+      type: 'party',
+      title: 'Lunch',
+      start: new Date(y, m, d, 12, 0),
+      end: new Date(y, m, d, 14, 0),
+      allDay: false
+    }, {
+      type: 'party',
+      title: 'Lunch 2',
+      start: new Date(y, m, d, 12, 0),
+      end: new Date(y, m, d, 14, 0),
+      allDay: false
+    }, {
+      type: 'party',
+      title: 'Click for Google',
+      start: new Date(y, m, 28),
+      end: new Date(y, m, 29),
+      url: 'http://google.com/'
+    }]
+  };
+  /* alert on eventClick */
+  $scope.alertOnEventClick = function(date, jsEvent, view) {
+    $scope.alertMessage = (date.title + ' was clicked ');
+  };
+  /* alert on Drop */
+  $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view) {
+    $scope.alertMessage = ('Event Droped to make dayDelta ' + delta);
+  };
+  /* alert on Resize */
+  $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view) {
+    $scope.alertMessage = ('Event Resized to make dayDelta ' + delta);
+  };
+  /* add and removes an event source of choice */
+  $scope.addRemoveEventSource = function(sources, source) {
+    var canAdd = 0;
+    angular.forEach(sources, function(value, key) {
+      if (sources[key] === source) {
+        sources.splice(key, 1);
+        canAdd = 1;
+      }
+    });
+    if (canAdd === 0) {
+      sources.push(source);
+    }
+  };
+  /* add custom event*/
+  $scope.addEvent = {};
+  $scope.addEvent = function() {
+    $scope.events.push({
+      title: $scope.addEvent.title,
+      start: new Date(y, m, $scope.addEvent.start.day, $scope.addEvent.start.hour, $scope.addEvent.start.minute),
+      end: new Date(y, m, $scope.addEvent.end.day, $scope.addEvent.end.hour, $scope.addEvent.end.minute),
+      className: ['openSesame']
+    });
+  };
+  /* remove event */
+  $scope.remove = function(index) {
+    $scope.events.splice(index, 1);
+  };
+  /* Change View */
+  $scope.changeView = function(view, calendar) {
+    uiCalendarConfig.calendars[calendar].fullCalendar('changeView', view);
+  };
+  /* Change View */
+  $scope.renderCalender = function(calendar) {
+    if (uiCalendarConfig.calendars[calendar]) {
+      uiCalendarConfig.calendars[calendar].fullCalendar('render');
+    }
+  };
+  /* Render Tooltip */
+  $scope.eventRender = function(event, element, view) {
+    element.attr({
+      'tooltip': event.title,
+      'tooltip-append-to-body': true
+    });
+    $compile(element)($scope);
+  };
+  /* config object */
+  $scope.uiConfig = {
+    calendar: {
+      height: 450,
+      editable: true,
+      header: {
+        left: 'title',
+        center: '',
+        right: 'today prev,next'
+      },
+      eventClick: $scope.alertOnEventClick,
+      eventDrop: $scope.alertOnDrop,
+      eventResize: $scope.alertOnResize,
+      eventRender: $scope.eventRender
+    }
+  };
+
+  $scope.changeLang = function() {
+    if ($scope.changeTo === 'Hungarian') {
+      $scope.uiConfig.calendar.dayNames = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
+      $scope.uiConfig.calendar.dayNamesShort = ["Vas", "Hét", "Kedd", "Sze", "Csüt", "Pén", "Szo"];
+      $scope.changeTo = 'English';
+    } else {
+      $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      $scope.changeTo = 'Hungarian';
+    }
+  };
+  /* event sources array*/
+  $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
+  $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
+});
+
+/* EOF */
+/*
+ *
+ *     xiaofeng.yao     2016.9.14     add tab
+ *
+ */
+appdemo.controller('addtabcontroller', ['$scope', '$http', function($scope, $http) {
+    $scope.AddtabNav = ['101', '202', '303', '404', '505', '606', '701', '702', '703', '704', '705', '706', '707', '708', '709'];
+    $scope.tabArray = [];
+    $scope.clicknavli = function(obj) {
+        var navWidth = 600,
+            maxWidth;
+        if ($scope.tabArray.indexOf(obj) == -1) {
+            $scope.tabArray.push(obj);
+            if ($scope.tabArray.length < 5) {
+                maxWidth = 120;
+                console.log(maxWidth);
+            } else {
+                console.log($scope.tabArray.length)
+                maxWidth = navWidth / $scope.tabArray.length;
+                console.log(maxWidth);
+            }
+            $scope.tabwidth = maxWidth;
+            console.log($scope.tabArray)
+        };
+    }
+}]);
+/*
+ *
+ *     xiaofeng.yao     2016.9.18     add dropdown - duo
+ *
+ */
+appdemo.directive("relationFabricPopup", ['$http', function($http) {
+    return {
+        restrict: 'E',
+        scope: {},
+        templateUrl: "../app/js/adddropdown/relationFabricPopup.html",
+        link: function(scope) {
+            $http.get('data/tree.json').success(function(data) {
+                scope.fabric_list = data;
+            }).then(function() {
+                // 选中显示数组
+                var fabricArray = [];
+                // 爷爷标签
+                scope.clickfabric = function(dataobj, datatitle) {
+                    angular.forEach(datatitle, function(title) {
+                        title.isActive = false;
+                    });
+                    scope.fabrictwolist = dataobj.sub_menu;
+                    scope.fabricthreelist = null;
+                };
+                scope.fabricthreelist = null;
+                // 父类标签
+                scope.fabricLi = function(dataobj, datatitle) {
+                    angular.forEach(datatitle, function(title) {
+                        title.isActive = false;
+                    });
+                    scope.fabricthreelist = dataobj.list;
+
+                    var arrone = scope.fabricthreelist;
+                    for (var i = 0; i < arrone.length; i++) {
+                        for (var j = 0; j < fabricArray.length; j++) {
+                            if (arrone[i] == fabricArray[j]) {
+                                arrone[i].isActive = true;
+                            }
+                        }
+                    }
+                };
+
+                // 数组删除方法
+                Array.prototype.remove = function(val) {
+                    var index = this.indexOf(val);
+                    if (index > -1) {
+                        this.splice(index, 1);
+                    }
+                };
+
+                //子类标签
+                scope.fabricaddarray = function(datatitle, threeli) {
+                    if (fabricArray.indexOf(threeli) == -1) {
+                        fabricArray.push(threeli);
+                    } else {
+                        fabricArray.remove(threeli);
+                    }
+                    scope.fabricArray = fabricArray;
+                };
+
+                // 关闭nav li 标签
+                scope.delete = function(data) {
+                    // 删除指定数组对象
+                    fabricArray.remove(data);
+                    // 删除对应的LI中的选中状态
+                    data.isActive = false;
+                };
+            })
+        }
+    }
+}]);
+/*
+ *
+ *#     xiaofeng.yao     2016.9.27     cascade  级联
+ *
+ */
+
+appdemo.directive("cascade", ['$http', function($http) {
+    return {
+        restrict: 'EA',
+        scope: {},
+        templateUrl: "../app/js/adddropdown/cascade.html",
+        link: function(scope) {
+            $http.get('data/tree.json').success(function(data) {
+                scope.treelist = data;
+            }).then(function() {
+                scope.listclickfun = function(obj) {
+                    obj.isActive = !obj.isActive;
+                };
+                // 级联 单独操作 一级
+                scope.clickcheckboxone = function(obj) {
+                    obj.isCheckbox = !obj.isCheckbox;
+                    if (obj.isCheckbox) {
+                        // 遍历 子 选项全部选中
+                        angular.forEach(obj.sub_menu, function(li, i) {
+                            li.isCheckbox = true;
+                            // 遍历 孙子 选项全部选中
+                            angular.forEach(li.list, function(list, i) {
+                                list.isCheckbox = true;
+                            });
+                        });
+                    } else {
+                        angular.forEach(obj.sub_menu, function(li, i) {
+                            li.isCheckbox = false;
+                            angular.forEach(li.list, function(list, i) {
+                                list.isCheckbox = false;
+                            });
+                        });
+                    }
+
+                };
+                // 级联 单独操作 二级
+                scope.clickcheckboxtwo = function(obj) {
+                    obj.isCheckbox = !obj.isCheckbox;
+                    if (obj.isCheckbox) {
+                        angular.forEach(obj.list, function(list, i) {
+                            list.isCheckbox = true;
+                        });
+                    } else {
+                        angular.forEach(obj.list, function(list, i) {
+                            list.isCheckbox = false;
+                        });
+                    }
+
+                };
+
+            });
+        }
+    }
+}]);
+/*
+ *
+ *#     xiaofeng.yao     2016.9.27     treelist
+ *
+ */
+
+appdemo.directive("treelist", ['$http', function($http) {
+    return {
+        restrict: 'EA',
+        scope: {},
+        templateUrl: "../app/js/adddropdown/tree.html",
+        link: function(scope) {
+            $http.get('data/tree.json').success(function(data) {
+                scope.treelist = data;
+            }).then(function() {
+                scope.listclickfun = function(obj) {
+                    obj.isActive = !obj.isActive;
+                }
+            });
+        }
+    }
+}]);
+/*
+ *
  *     xiaofeng.yao     2016.9.9     bobin
  *
  */
@@ -547,12 +835,14 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
     $scope.dice_d = 'move.gif';
     $scope.dice_e = 'move.gif';
     $scope.dice_f = 'move.gif';
+
     // 功能实现函数
     $scope.bobinFun = function() {
+
         // title 显示隐藏开关
         $scope.titleshow = false;
 
-        // 默认的跑动图片
+        // 点击后先切换成跑动图片
         $scope.dice_a = 'move.gif';
         $scope.dice_b = 'move.gif';
         $scope.dice_c = 'move.gif';
@@ -560,10 +850,11 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
         $scope.dice_e = 'move.gif';
         $scope.dice_f = 'move.gif';
 
+        // 等级划分
         var level = {
-                one: '状元插金花~~~~~3000元大奖啊！',
-                two: '六红',
-                three: '五红',
+                one: '状元插金花！',
+                two: '六红六子', // 六子
+                three: '五红五子', // 五子
                 four: '普通状元',
                 five: '对堂',
                 six: '三红',
@@ -573,7 +864,11 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                 ten: '没有奖哦亲~~~~~'
             },
             this_level; // 存储当前等级
+
+        //  存储当前随机数组
         var NumberArr = [];
+
+        //  生成随机数据
         var a = Math.floor(Math.random() * 6) + 1,
             b = Math.floor(Math.random() * 6) + 1,
             c = Math.floor(Math.random() * 6) + 1,
@@ -585,18 +880,21 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
         NumberArr.push(a, b, c, d, e, f);
         NumberArr.sort();
 
-        var isfour = 0; //存储当前的四的个数
+        //存储当前 “四” 的个数
+        var isfour = 0;
 
         for (var i = 0; i < NumberArr.length; i++) {
             if (NumberArr[i] == 4) {
                 isfour = isfour + 1;
             }
         }
-        // 基础的对4进行判断一遍;
+
+        // 判断 “四” 的个数属于哪一等级;
         switch (isfour) {
             case 1:
                 for (var i = 0; i < NumberArr.length; i++) {
-                    var ContrastArr = []; //存储当前相同的数量，判断是否为四进
+                    //存储当前相同的数量，判断是否为四进
+                    var ContrastArr = [];
                     for (var j = 0; j < NumberArr.length; j++) {
                         if (NumberArr[i] == NumberArr[j]) {
                             ContrastArr.push(NumberArr[j]);
@@ -605,13 +903,13 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                 }
                 // 等到上面遍历执行完再进行判断属于哪个级别
                 if (ContrastArr.length === 4) {
-                    this_level = level.seven;
+                    this_level = level.seven; //四进
                     break;
                 } else if (ContrastArr.length === 5) {
-                    this_level = level.three;
+                    this_level = level.three; //五红
                     break;
                 } else if (ContrastArr.length === 6) {
-                    this_level = level.two;
+                    this_level = level.two; //六红
                     break;
                 } else {
                     // 判断一下，是 "对堂"" or ”一秀“，对堂就是顺子，123456，一秀就是一个只有4；
@@ -649,7 +947,7 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                             ContrastArr.push(NumberArr[j]);
                         }
                     }
-                    // 判断4进,二举
+                    // 判断是 4进 or 二举
                     if (ContrastArr.length === 4) {
                         this_level = level.seven;
                         break;
@@ -670,19 +968,19 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                     }
                 }
                 if (one == 2) {
-                    this_level = level.one;
+                    this_level = level.one; // 插金花
                 } else {
-                    this_level = level.four;
+                    this_level = level.four; //普通状元
                 }
                 break;
             case 5:
-                this_level = level.three;
+                this_level = level.three; // 五红五子
                 break;
             case 6:
-                this_level = level.two;
+                this_level = level.two; //六红六子
                 break;
             default:
-                // 就是页面都没有四,来判断是否属于 “对堂” 和 “四进” 中的哪一种;
+                // 就是页面都没有四,来判断是否属于 “五子” 和 “六子” 和 “四进” 中的哪一种;
                 for (var i = 0; i < NumberArr.length; i++) {
                     var ContrastArr = [];
                     for (var j = 0; j < NumberArr.length; j++) {
@@ -691,13 +989,13 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                         }
                     }
                     if (ContrastArr.length === 4) {
-                        this_level = level.seven;
+                        this_level = level.seven; //四进
                         break;
                     } else if (ContrastArr.length === 5) {
-                        this_level = level.three;
+                        this_level = level.three; //五子
                         break;
                     } else if (ContrastArr.length === 6) {
-                        this_level = level.two;
+                        this_level = level.two; //六子
                         break;
                     } else {
                         this_level = level.ten;
@@ -706,7 +1004,7 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                 break;
         }
 
-        // 定时设置最终显示的骰子图片
+        // 定时来设置最终显示的骰子图片
         var timeout = $timeout(function() {
             $scope.dice_a = a + '.png';
             $scope.dice_b = b + '.png';
@@ -714,9 +1012,9 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
             $scope.dice_d = d + '.png';
             $scope.dice_e = e + '.png';
             $scope.dice_f = f + '.png';
-            // 设置 title 显示
+            // 设置 title 为显示状态
             $scope.titleshow = true;
-            // 显示 level
+            // 显示 level 当前等级
             $scope.title = this_level;
         }, 2000);
 
@@ -1218,6 +1516,65 @@ appdemo.directive('dropdowns', ['$http', function($http) {
     }
 }])
 /*
+*
+*#     xiaofeng.yao     2016.10.11     file upload
+*
+*/
+
+appdemo.controller('fileuploadController', ['$scope','FileUploader',function($scope,FileUploader){
+	// 文件上传的后台文件地址
+    var uploader = $scope.uploader = new FileUploader({
+        url: './upload.php'
+    });
+
+    // FILTERS
+
+    uploader.filters.push({
+        name: 'customFilter',
+        fn: function(item /*{File|FileLikeObject}*/, options) {
+            return this.queue.length < 10;
+        }
+    });
+
+    // CALLBACKS
+
+    uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
+        console.info('onWhenAddingFileFailed', item, filter, options);
+    };
+    uploader.onAfterAddingFile = function(fileItem) {
+        console.info('onAfterAddingFile', fileItem);
+    };
+    uploader.onAfterAddingAll = function(addedFileItems) {
+        console.info('onAfterAddingAll', addedFileItems);
+    };
+    uploader.onBeforeUploadItem = function(item) {
+        console.info('onBeforeUploadItem', item);
+    };
+    uploader.onProgressItem = function(fileItem, progress) {
+        console.info('onProgressItem', fileItem, progress);
+    };
+    uploader.onProgressAll = function(progress) {
+        console.info('onProgressAll', progress);
+    };
+    uploader.onSuccessItem = function(fileItem, response, status, headers) {
+        console.info('onSuccessItem', fileItem, response, status, headers);
+    };
+    uploader.onErrorItem = function(fileItem, response, status, headers) {
+        console.info('onErrorItem', fileItem, response, status, headers);
+    };
+    uploader.onCancelItem = function(fileItem, response, status, headers) {
+        console.info('onCancelItem', fileItem, response, status, headers);
+    };
+    uploader.onCompleteItem = function(fileItem, response, status, headers) {
+        console.info('onCompleteItem', fileItem, response, status, headers);
+    };
+    uploader.onCompleteAll = function() {
+        console.info('onCompleteAll');
+    };
+
+    console.info('uploader', uploader);
+}]);
+/*
  *
  *     xiaofeng.yao     2015.8.16     form
  *
@@ -1287,6 +1644,166 @@ appdemo.controller("registerform", ['$scope', '$http', function($scope, $http) {
         $scope.registeruser = userobj;
     };
 }]);
+/*
+*
+*#     xiaofeng.yao     2016.10.12     gird 
+*
+*/
+appdemo.controller('assemblyGird', ['$scope','$http', function($scope,$http){
+	// 对象初始化
+	$scope.gird = {
+		girdlists:[]  // 存放所有页数据
+	};
+
+	$scope.currentPage = 1;//初始当前页
+	$scope.maxSize = 4;//最多显示3页其他的用···代替
+    $scope.girdselect=5; // 单页显示数量
+	$http.get('data/gird.json').success(function(data) {
+        if(data&&data.status !==1 ){
+        	
+            $scope.addr = data;
+
+            var num = $scope.addr.length;
+
+            $scope.totalItems = num;//共有多少条数据
+            for(var i=0;i<num;i+=$scope.girdselect){
+                $scope.gird.girdlists.push($scope.addr.slice(i,i+$scope.girdselect))
+            }
+        //此方法可以将一个数组分成多个数组并且放在了一个大数组里面，按每个数组10条数据
+        //【因为组件默认为10条数据一页】存放，假如41条数据的话我们将分成5页
+        
+        }else{
+        	alert('数据请求出错');
+        }   
+    }).then(function(){
+
+    });
+}])
+
+appdemo.filter('paging', function() {
+  return function (items, index, pageSize) {
+    if (!items)
+      return [];
+
+    var offset = (index - 1) * pageSize;
+    return items.slice(offset, offset + pageSize);
+  }
+})
+
+appdemo.filter('size', function() {
+  return function (items) {
+    if (!items)
+      return 0;
+
+    return items.length || 0
+  }
+});
+
+/*
+ *
+ *#     xiaofeng.yao     2016.9.30     imgenlarge
+ *
+ */
+appdemo.directive('imgEnlarge', function() {
+    return {
+        scope: {},
+        restrict: 'EA',
+        templateUrl: '../app/js/imgenlarge/imgenlargehtml.html',
+        link: function(scope, iElm, iAttrs, controller) {
+            // img src
+            var img = new Image();
+            img.src = '../app/images/img_1.jpg';
+            scope.imgsrc = img.src;
+
+            // 默认的小黑框位置 top:0 left:0
+            scope.mouseleft = 0;
+            scope.mousetop = 0;
+
+            // 鼠标滑动执行函数
+            scope.imgmouseover = function(mouse) {
+
+                // min img
+                scope.mouseleft = mouse.offsetX - 15;
+                scope.mousetop = mouse.offsetY - 15;
+
+                // max img
+                scope.maximgleft = scope.mouseleft * 10 * -1;
+                scope.maximgtop = scope.mousetop * 10 * -1;
+
+            }
+        }
+    };
+});
+/*
+ *
+ *#     xiaofeng.yao     2016.9.28     input search 
+ *
+ */
+appdemo.controller('searchController', ['$scope', function($scope) {
+    $scope.searcharr = [{
+        li: 12323243
+    }, {
+        li: 41324
+    }, {
+        li: 63422
+    }, {
+        li: 43233
+    }, {
+        li: 233222
+    }, {
+        li: 643221
+    }, {
+        li: 778445
+    }, {
+        li: 34533
+    }];
+    $scope.searchValue = '输入搜索内容';
+    $scope.svalue = '';
+    // 鼠标划过增加状态
+    $scope.SearchArrMouseover = function(obj) {
+        angular.forEach(obj, function(list, i) {
+            list.isActive = false;
+        });
+    };
+    // 鼠标点击改变输入
+    $scope.SearchArrClick = function(obj) {
+        if ($scope.search == obj.li) {
+            //关闭提示框
+            $scope.searchid = 2;
+        } else {
+            $scope.search = obj.li;
+        }
+    }
+
+    // search keydown 键盘事件
+    $scope.searchfocus = function($event) {
+        // 40 下  38 上   13 回车
+        switch ($event.keyCode) {
+            case 13:
+                //关闭提示框
+                $scope.searchid = 2;
+                break;
+            case 40:
+                break;
+            case 38:
+                break;
+        }
+    };
+
+}]);
+/*
+ *
+ *#     xiaofeng.yao    2016.9.28     input-type
+ *
+ */
+appdemo.controller('inputtype', function($scope) {
+    var vm = $scope.vm = {};
+});
+/*
+*
+*#     xiaofeng.yao     2016.10.17     Highcharts
+*
+*/
 /*
  *
  *     xiaofeng.yao     2016.9.1     mobile
@@ -1404,8 +1921,37 @@ appdemo.controller('ngdialogctrl', ['$scope', 'ngDialog', function($scope, ngDia
     $scope.dialogbtnfive = function() {
         ngDialog.open({
             template: 'modifyMobileDialogTemplate'
-        })
+        });
     }
+
+    $scope.dialogimg = function() {
+        ngDialog.open({
+            template: 'dailogimgdiv.html',
+            className: 'dailogimgdivstyle'
+        });
+    };
+    // 绘制图片
+    var drawImageFun = function() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = new Images();
+        img.src = '../app/images/007.png';
+        img.onload = function() {
+            ctx.drawImage(img, 10, 10);
+        }
+    };
+    // 点击弹出事件
+    $scope.dialogbtncanvas = function() {
+
+        ngDialog.open({
+            template: 'dailogcanvasdiv.html'
+        });
+
+        drawImageFun();
+    }
+
+
+
 }]);
 /*
  *
@@ -1515,6 +2061,146 @@ appdemo.controller("AssemblyLinkageSelect", ['$scope', '$http', function($scope,
     }
 
 }]);
+/*
+ *
+ *#    xiaofeng.yao     2016.9.30     shopping cart
+ *
+ */
+appdemo.directive('shoppingCart', function() {
+    // Runs during compile
+    return {
+        scope: {}, // {} = isolate, true = child, false/undefined = no change
+        controller: function($scope, $element, $attrs, $transclude) {
+            // 商品数据
+            $scope.commodityArr = [{
+                key: 'OBJ001',
+                isActive:false,
+                imgsrc: '../app/images/iphone7.jpg',
+                name: 'iphone 7 plus',
+                title: '老板娘跟人跑了。。',
+                price: 998
+            }, {
+                key: 'OBJ002',
+                isActive:false,
+                imgsrc: '../app/images/iphone7.jpg',
+                name: 'iphone 6S',
+                title: '员工把公款都卷跑了。。',
+                price: 848
+            }, {
+                key: 'OBJ003',
+                isActive:false,
+                imgsrc: '../app/images/iphone7.jpg',
+                name: 'iphone 7',
+                title: '房东要来收租了。。',
+                price: 968
+            }, {
+                key: 'OBJ004',
+                isActive:false,
+                imgsrc: '../app/images/iphone7.jpg',
+                name: 'iphone 5',
+                title: '老板儿子跟人跑了。。',
+                price: 288
+            }];
+            // 购物车数组
+            $scope.shoppingcartArr = [];
+
+            // 点击的商品写入数组
+            $scope.setShoppingCartArr = function(obj) {
+                switch ($scope.shoppingcartArr.length) {
+                    case 0:
+                        // 重置默认checkbox为不选中状态
+                        obj.isActive = false;
+                        $scope.shoppingcartArr.push(obj);
+                        break;
+                    default:
+                        if ($scope.shoppingcartArr.indexOf(obj) == -1) {
+                            // 重置默认checkbox为不选中状态
+                            obj.isActive = false;
+                            $scope.shoppingcartArr.push(obj);
+                        }
+                        break;
+                }
+            };
+            // 点击全选
+            $scope.carcheckboxFun = function(cararr){
+                angular.forEach(cararr,function(obj,index){
+                    obj.isActive = $scope.allchecked;
+                })
+            };
+            // 删除
+            Array.prototype.remove = function (val) {  
+                var index = this.indexOf(val);  
+                if (index > -1) {  
+                    this.splice(index, 1);  
+                }  
+            };
+            $scope.newArr = [];
+            // 点击删除选中
+            $scope.removeChecked = function(arr){
+                // 判断全选按钮是不是选中 
+                // 是 直接删除数组
+                // 否 删除指定选项
+                if($scope.allchecked == true){
+                    $scope.shoppingcartArr = [];
+                    // 重置checkbox为未选中状态
+                    $scope.allchecked = false;
+                }else{
+                    // 理论上可执行的多选删除，不能直接执行删除操作,原因未知
+                    // for(var i = 0;i<$scope.shoppingcartArr.length;i++){
+                    //     (function(obj){
+                    //         if($scope.shoppingcartArr[obj].isActive == true){
+                    //             $scope.shoppingcartArr.remove($scope.shoppingcartArr[obj]);
+                    //         }
+                    //     })(i)
+                    // };
+
+                    // 实际解决的多选删除
+                    var arr = [];
+
+                    // 把购物车选中的push到新数组存起来
+                    angular.forEach($scope.shoppingcartArr,function(obj,index){
+                        if(obj.isActive == true){
+                            arr.push(obj);  
+                        }
+                    });
+
+                    // 遍历后对比删除选中的
+                    for(var i = 0;i<$scope.shoppingcartArr.length;i++){
+                        for(var j=0;j<arr.length;j++){
+                            if($scope.shoppingcartArr[i].key == arr[j].key){
+                                $scope.shoppingcartArr.remove($scope.shoppingcartArr[i]);
+                            }
+                        }                        
+                    };            
+                }
+            };
+            //  商品总价计算
+            //  默认的价格
+            $scope.monerysum = 0;
+            //  每次点击后计算当前价格 分别有（选中商品时，增加数量时，删除选中商品时都要进行计算总价。）
+            $scope.sumpriceFun = function(){
+                var sum = 0; // 存储总价
+                //  抽取页面中的所有价格
+                var priceobj = angular.element('#mytable').find('.price');
+                //  遍历累加
+                for(var i=0;i<priceobj.length;i++){
+                    var m = Number(priceobj[i].innerText) ;
+                    sum += m;                
+                }
+                $scope.monerysum = sum;
+            }
+
+        },
+        // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+        restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
+        // template: '',
+        templateUrl: '../app/js/shoppingcart/cart.html',
+        // replace: true,
+        // transclude: true,
+        // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+        link: function(scope, iElm, iAttrs, controller) {}
+    };
+});
 /*
  *
  *     xiaofeng.yao     2016.8.25     sweetalert
@@ -1754,6 +2440,9 @@ appdemo.controller('togglecontrolle', ['$scope', '$interval', '$timeout', functi
             $scope.countNum--;
             if ($scope.countNum == 0) {
                 $interval.cancel(timer);
+                // 重置属性
+                $scope.countNum = 10;
+                $scope.timertitle = '定时器案例';
             }
         }, 1000);
         var timeout = $timeout(function() {
@@ -1761,201 +2450,6 @@ appdemo.controller('togglecontrolle', ['$scope', '$interval', '$timeout', functi
         }, 3000)
     };
 }]);
-/*
- *
- *     calendarDemoApp - 0.9.0     2016.8.24     calendar
- *
- */
-appdemo.controller('calendarDemoApp', function($scope, $compile, uiCalendarConfig) {
-  var date = new Date();
-  var d = date.getDate();
-  var m = date.getMonth();
-  var y = date.getFullYear();
-
-  $scope.changeTo = 'Hungarian';
-  /* event source that pulls from google.com */
-  $scope.eventSource = {
-    url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
-    className: 'gcal-event', // an option!
-    currentTimezone: 'America/Chicago' // an option!
-  };
-  /* event source that contains custom events on the scope */
-  $scope.events = [{
-    title: 'All Day Event',
-    start: new Date(y, m, 1)
-  }, {
-    title: 'Long Event',
-    start: new Date(y, m, d - 5),
-    end: new Date(y, m, d - 2)
-  }, {
-    id: 999,
-    title: 'Repeating Event',
-    start: new Date(y, m, d - 3, 16, 0),
-    allDay: false
-  }, {
-    id: 999,
-    title: 'Repeating Event',
-    start: new Date(y, m, d + 4, 16, 0),
-    allDay: false
-  }, {
-    title: 'Birthday Party',
-    start: new Date(y, m, d + 1, 19, 0),
-    end: new Date(y, m, d + 1, 22, 30),
-    allDay: false
-  }, {
-    title: 'Click for Google',
-    start: new Date(y, m, 28),
-    end: new Date(y, m, 29),
-    url: 'http://google.com/'
-  }];
-  /* event source that calls a function on every view switch */
-  $scope.eventsF = function(start, end, timezone, callback) {
-    var s = new Date(start).getTime() / 1000;
-    var e = new Date(end).getTime() / 1000;
-    var m = new Date(start).getMonth();
-    var events = [{
-      title: 'Feed Me ' + m,
-      start: s + (50000),
-      end: s + (100000),
-      allDay: false,
-      className: ['customFeed']
-    }];
-    callback(events);
-  };
-
-  $scope.calEventsExt = {
-    color: '#f00',
-    textColor: 'yellow',
-    events: [{
-      type: 'party',
-      title: 'Lunch',
-      start: new Date(y, m, d, 12, 0),
-      end: new Date(y, m, d, 14, 0),
-      allDay: false
-    }, {
-      type: 'party',
-      title: 'Lunch 2',
-      start: new Date(y, m, d, 12, 0),
-      end: new Date(y, m, d, 14, 0),
-      allDay: false
-    }, {
-      type: 'party',
-      title: 'Click for Google',
-      start: new Date(y, m, 28),
-      end: new Date(y, m, 29),
-      url: 'http://google.com/'
-    }]
-  };
-  /* alert on eventClick */
-  $scope.alertOnEventClick = function(date, jsEvent, view) {
-    $scope.alertMessage = (date.title + ' was clicked ');
-  };
-  /* alert on Drop */
-  $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view) {
-    $scope.alertMessage = ('Event Droped to make dayDelta ' + delta);
-  };
-  /* alert on Resize */
-  $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view) {
-    $scope.alertMessage = ('Event Resized to make dayDelta ' + delta);
-  };
-  /* add and removes an event source of choice */
-  $scope.addRemoveEventSource = function(sources, source) {
-    var canAdd = 0;
-    angular.forEach(sources, function(value, key) {
-      if (sources[key] === source) {
-        sources.splice(key, 1);
-        canAdd = 1;
-      }
-    });
-    if (canAdd === 0) {
-      sources.push(source);
-    }
-  };
-  /* add custom event*/
-  $scope.addEvent = {};
-  $scope.addEvent = function() {
-    $scope.events.push({
-      title: $scope.addEvent.title,
-      start: new Date(y, m, $scope.addEvent.start.day, $scope.addEvent.start.hour, $scope.addEvent.start.minute),
-      end: new Date(y, m, $scope.addEvent.end.day, $scope.addEvent.end.hour, $scope.addEvent.end.minute),
-      className: ['openSesame']
-    });
-  };
-  /* remove event */
-  $scope.remove = function(index) {
-    $scope.events.splice(index, 1);
-  };
-  /* Change View */
-  $scope.changeView = function(view, calendar) {
-    uiCalendarConfig.calendars[calendar].fullCalendar('changeView', view);
-  };
-  /* Change View */
-  $scope.renderCalender = function(calendar) {
-    if (uiCalendarConfig.calendars[calendar]) {
-      uiCalendarConfig.calendars[calendar].fullCalendar('render');
-    }
-  };
-  /* Render Tooltip */
-  $scope.eventRender = function(event, element, view) {
-    element.attr({
-      'tooltip': event.title,
-      'tooltip-append-to-body': true
-    });
-    $compile(element)($scope);
-  };
-  /* config object */
-  $scope.uiConfig = {
-    calendar: {
-      height: 450,
-      editable: true,
-      header: {
-        left: 'title',
-        center: '',
-        right: 'today prev,next'
-      },
-      eventClick: $scope.alertOnEventClick,
-      eventDrop: $scope.alertOnDrop,
-      eventResize: $scope.alertOnResize,
-      eventRender: $scope.eventRender
-    }
-  };
-
-  $scope.changeLang = function() {
-    if ($scope.changeTo === 'Hungarian') {
-      $scope.uiConfig.calendar.dayNames = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
-      $scope.uiConfig.calendar.dayNamesShort = ["Vas", "Hét", "Kedd", "Sze", "Csüt", "Pén", "Szo"];
-      $scope.changeTo = 'English';
-    } else {
-      $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      $scope.changeTo = 'Hungarian';
-    }
-  };
-  /* event sources array*/
-  $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
-  $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
-});
-
-/* EOF */
-appdemo.controller('AlertDemoCtrl', function($scope) {
-  $scope.alerts = [{
-    type: 'danger',
-    msg: 'Oh snap! Change a few things up and try submitting again.'
-  }, {
-    type: 'success',
-    msg: 'Well done! You successfully read this important alert message.'
-  }];
-
-  $scope.addAlert = function() {
-    $scope.alerts.push({
-      msg: 'Another alert!'
-    });
-  };
-
-  $scope.closeAlert = function(index) {
-    $scope.alerts.splice(index, 1);
-  };
-});
 appdemo.controller('CarouselDemoCtrl', function($scope) {
   $scope.myInterval = 5000;
   $scope.noWrapSlides = false;
@@ -2012,6 +2506,25 @@ appdemo.controller('CarouselDemoCtrl', function($scope) {
 
     return array;
   }
+});
+appdemo.controller('AlertDemoCtrl', function($scope) {
+  $scope.alerts = [{
+    type: 'danger',
+    msg: 'Oh snap! Change a few things up and try submitting again.'
+  }, {
+    type: 'success',
+    msg: 'Well done! You successfully read this important alert message.'
+  }];
+
+  $scope.addAlert = function() {
+    $scope.alerts.push({
+      msg: 'Another alert!'
+    });
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 });
 appdemo.controller('CollapseDemoCtrl', function($scope) {
     $scope.isCollapsed = false;

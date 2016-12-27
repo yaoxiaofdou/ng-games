@@ -1,0 +1,11 @@
+<div class="imgenlarge_section">
+    <div class="imgenlarge_active" ng-mousemove="imgmouseover($event);imgenlarge.isshow = 1;" 
+        ng-mouseleave = "imgenlarge.isshow = 2;">
+        <img ng-src="{{imgsrc}}">
+        <div class="enlargeMouse" style="top:{{mousetop}}px;left:{{mouseleft}}px;"></div>
+        <div class="mousemovediv"></div>
+    </div>
+    <div class="maximg_active" ng-if="imgenlarge.isshow == 1">
+        <img ng-src="{{imgsrc}}" style="top:{{maximgtop}}px;left:{{maximgleft}}px;"/>
+    </div>  
+</div>

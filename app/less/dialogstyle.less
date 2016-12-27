@@ -1,0 +1,34 @@
+/*
+*
+*#     xiaofeng.yao     2016.9.21     ng dialog less
+*
+*/
+.position(@ab,@t,@r,@b,@f,@m){
+    position:@ab;
+    top:@t;
+    right:@r;
+    bottom:@b;
+    left:@f;
+    margin:@m;
+}
+.dailogimgdivstyle{
+    .ngdialog-content{
+        width:450px;
+        height:600px;
+        .position(absolute,0,0,0,0,auto);
+        .dialogimg{
+            width:450px;
+            height:600px;
+            margin:0 auto;
+            z-index: 10;
+        }
+        .ngdialog-close{
+            .position(absolute,0,15px,none,none,auto);
+            font-size:40px;
+            color:#999;
+            &:hover{
+                color:#fff;
+            }
+        }
+    }
+}

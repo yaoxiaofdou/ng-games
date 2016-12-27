@@ -4,20 +4,17 @@
         
         <div class="AddtabNav">
             <ul>
-                <li ng-repeat="tab in tabArray">
+                <li ng-repeat="tab in tabArray" style="width:{{tabwidth}}px;">
                     {{tab}}
                 </li>
             </ul>
-        </div>
-        <div class="NavContent">
-            
         </div>
         <div class="clicknav">
             <ul>
                 <li ng-click="clicknavli(tab);" ng-repeat="tab in AddtabNav">
                     {{tab}}
                 </li>
-            </ul>    
+            </ul>
         </div>
 
     </div>

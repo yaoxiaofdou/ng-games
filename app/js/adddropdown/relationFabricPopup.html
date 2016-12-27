@@ -1,0 +1,43 @@
+
+    <div class="form-group" ng-init="addtabcontroller.isshow = false;">
+        <label class="col-md-2 control-label required">关联面料：</label>
+        <div class="col-md-10">
+            <div>
+                <ul class="list-unstyled">
+                    <li class="btn-sq has-close ng-binding ng-scope" ng-repeat="navli in fabricArray">
+                        {{navli.name}}
+                        <span class="close select-search-list-item_selection-remove" ng-click="delete(navli)">x</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-orange" ng-click="addtabcontroller.isshow =! addtabcontroller.isshow;">选择面料类型<span class="caret"></span></button>
+            <div class="fabric-addcarousel" ng-if="addtabcontroller.isshow" menu-input>
+                <div class="sel-fbi-menu-left col-md-4 well-white">
+                    <ul class="list-unstyled">
+                        <li class="sel-item ng-scope" ng-class='[fabricname.isActive ? "li-active" : null ]' ng-repeat="fabricname in fabric_list" ng-click="clickfabric(fabricname,fabric_list);fabricname.isActive = 'true';">
+                            <a class="ng-binding" style="cursor:pointer;">{{fabricname.fabric}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sel-fbi-menu-left col-md-4 well-white">
+                    <ul class="list-unstyled">
+                        <li class="sel-item ng-scope" ng-class='[twoli.isActive ? "li-active" : null ]' ng-repeat="twoli in fabrictwolist" ng-click="fabricLi(twoli,fabrictwolist);twoli.isActive = 'true';">
+                            <a class="ng-binding">{{twoli.one}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sel-fbi-menu-left col-md-4 well-white">
+                    <ul class="list-unstyled">
+                        <li class="sel-item ng-scope" ng-class='[threeli.isActive ? "li-active" : null ]' ng-repeat="threeli in fabricthreelist" ng-click="fabricaddarray(fabricthreelist,threeli);threeli.isActive =! threeli.isActive;">
+                            <input type="checkbox" ng-checked="threeli.isActive" style="margin-top:-2px;">
+                            <a class="ng-binding">{{threeli.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-orange" ng-click="addtabcontroller.isshow = false;">确定</button>
+                    <button class="btn btn-default" ng-click="addtabcontroller.isshow = false;">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>

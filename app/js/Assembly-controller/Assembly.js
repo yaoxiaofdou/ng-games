@@ -17,8 +17,6 @@ appdemo.controller("selectctrl",function($scope){
     ];
 });
 
-
-
 // 自定义服务测试
 appdemo.controller("MainCtrl",[function(){
 	var self = this;

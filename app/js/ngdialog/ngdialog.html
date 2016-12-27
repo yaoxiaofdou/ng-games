@@ -21,8 +21,27 @@
             <h4>修改手机提示窗</h4>
             <button class="btn btn-info" ng-click="dialogbtnfive();">click me</button>
         </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <h4>图片窗</h4>
+            <button class="btn btn-info" ng-click="dialogimg();">click me</button>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <h4>弹出CANVAS</h4>
+            <button class="btn btn-info" ng-click="dialogbtncanvas();">click me</button>    
+        </div>
     </div>
 </div>
+
+<script type="text/ng-template" id="dailogcanvasdiv.html">
+    <h3>绘制</h3>
+    <canvas id="myCanvas"></canvas>
+</script>
+
+<script type="text/ng-template" id="dailogimgdiv.html">
+    
+    <img class="dialogimg" ng-src="../app/images/007.png" width="450" height="600"/>
+
+</script>
 
 <script type="text/ng-template" id="templateId">
     <h1>标题</h1>

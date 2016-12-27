@@ -9,17 +9,18 @@ appdemo.controller('addtabcontroller', ['$scope', '$http', function($scope, $htt
     $scope.clicknavli = function(obj) {
         var navWidth = 600,
             maxWidth;
-        if ($scope.tabArray.length < 6) {
-            maxWidth = 120;
-            console.log(maxWidth);
-        } else if () {
-
-        } else {
-            maxWidth = navWidth / $scope.tabArray.length;
-            console.log(maxWidth);
-        }
         if ($scope.tabArray.indexOf(obj) == -1) {
             $scope.tabArray.push(obj);
-        }
+            if ($scope.tabArray.length < 5) {
+                maxWidth = 120;
+                console.log(maxWidth);
+            } else {
+                console.log($scope.tabArray.length)
+                maxWidth = navWidth / $scope.tabArray.length;
+                console.log(maxWidth);
+            }
+            $scope.tabwidth = maxWidth;
+            console.log($scope.tabArray)
+        };
     }
 }]);

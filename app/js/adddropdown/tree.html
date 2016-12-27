@@ -1,0 +1,33 @@
+<div class="tree-active" ng-init="list.isActive = true;">
+    <!-- 一级 -->
+    <ul>
+        <li ng-repeat="listone in treelist">
+            <div ng-click="listclickfun(listone);">
+                <span ng-class="['glyphicon','addicon', listone.isActive ? 'glyphicon-minus':'glyphicon-plus']"></span>
+                {{ listone.fabric }}
+            </div>
+            
+            <!-- 二级 -->
+            <ul style="margin-left:20px;" ng-if="listone.isActive">
+                <li ng-repeat="listtwo in listone.sub_menu">
+                    <div ng-click="listclickfun(listtwo);">
+                        <span ng-class="['glyphicon','addicon', listtwo.isActive ? 'glyphicon-minus':'glyphicon-plus']"></span>
+                        {{ listtwo.one }}
+                    </div>
+                    
+                    <!-- 三级 -->
+                    <ul style="margin-left:30px;" ng-if="listtwo.isActive">
+                        <li ng-repeat="listthree in listtwo.list">
+                            <div ng-click="listclickfun(listthree);">
+                                {{listthree.name}}
+                            </div>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+
+</div>

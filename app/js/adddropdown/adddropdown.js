@@ -3,79 +3,69 @@
  *     xiaofeng.yao     2016.9.18     add dropdown - duo
  *
  */
-appdemo.controller('adddropdowncontroller', ['$scope', function($scope) {
-    // 关联面料菜单
-    $scope.fabric_list = [{
-        fabric: '按产品标签',
-        sub_menu: [{
-            one: '冬装',
-            list: [
-                '大衣'
-            ]
-        }, {
-            one: '春装',
-            list: [
-                '长袖'
-            ]
-        }, {
-            one: '夏装',
-            list: [
-                '短袖'
-            ]
-        }]
-    }, {
-        fabric: '按面料类型',
-        sub_menu: [{
-            one: '坯布',
-            list: [
-                '全棉坯布',
-                '化纤坯布',
-                '人棉坯布'
-            ]
-        }, {
-            one: '皮/革',
-            list: [
-                '真皮'
-            ]
-        }, {
-            one: '丝绸',
-            list: [
-                '真丝滑',
-                '假的'
-            ]
-        }, {
-            one: '其他面料',
-            list: [
-                '真的',
-                '假的'
-            ]
-        }, {
-            one: '化纤面料',
-            list: [
-                '真丝',
-                '假丝'
-            ]
-        }]
-    }];
+appdemo.directive("relationFabricPopup", ['$http', function($http) {
+    return {
+        restrict: 'E',
+        scope: {},
+        templateUrl: "../app/js/adddropdown/relationFabricPopup.html",
+        link: function(scope) {
+            $http.get('data/tree.json').success(function(data) {
+                scope.fabric_list = data;
+            }).then(function() {
+                // 选中显示数组
+                var fabricArray = [];
+                // 爷爷标签
+                scope.clickfabric = function(dataobj, datatitle) {
+                    angular.forEach(datatitle, function(title) {
+                        title.isActive = false;
+                    });
+                    scope.fabrictwolist = dataobj.sub_menu;
+                    scope.fabricthreelist = null;
+                };
+                scope.fabricthreelist = null;
+                // 父类标签
+                scope.fabricLi = function(dataobj, datatitle) {
+                    angular.forEach(datatitle, function(title) {
+                        title.isActive = false;
+                    });
+                    scope.fabricthreelist = dataobj.list;
 
-    $scope.clickfabric = function(dataobj) {
-        $scope.fabrictwolist = dataobj.sub_menu;
-        $scope.fabricthreelist = null;
-    };
-    $scope.fabricLi = function(dataobj) {
-        $scope.fabricthreelist = dataobj.list;
-    };
-    $scope.fabricArray = [];
-    $scope.fabricaddarray = function() {
-        var threeli = this.threeli;
-        // 重复不添加
-        if ($scope.fabricArray.indexOf(threeli) == -1) {
-            $scope.fabricArray.push(threeli);
+                    var arrone = scope.fabricthreelist;
+                    for (var i = 0; i < arrone.length; i++) {
+                        for (var j = 0; j < fabricArray.length; j++) {
+                            if (arrone[i] == fabricArray[j]) {
+                                arrone[i].isActive = true;
+                            }
+                        }
+                    }
+                };
+
+                // 数组删除方法
+                Array.prototype.remove = function(val) {
+                    var index = this.indexOf(val);
+                    if (index > -1) {
+                        this.splice(index, 1);
+                    }
+                };
+
+                //子类标签
+                scope.fabricaddarray = function(datatitle, threeli) {
+                    if (fabricArray.indexOf(threeli) == -1) {
+                        fabricArray.push(threeli);
+                    } else {
+                        fabricArray.remove(threeli);
+                    }
+                    scope.fabricArray = fabricArray;
+                };
+
+                // 关闭nav li 标签
+                scope.delete = function(data) {
+                    // 删除指定数组对象
+                    fabricArray.remove(data);
+                    // 删除对应的LI中的选中状态
+                    data.isActive = false;
+                };
+            })
         }
-        console.log($scope.fabricArray);
-    };
-    // 关闭nav li 标签
-    $scope.delete = function(i) {
-        $scope.fabricArray.splice(i, 1);
-    };
+    }
 }]);

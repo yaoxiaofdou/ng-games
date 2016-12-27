@@ -47,6 +47,7 @@ html,body{
 
 // Nav class
 @nav-width:220px;
+@nav-height:100%;
 @nav-li-background:#00bcd4;
 @nav-li-border:5px solid #00bcd4;
 .mainnav{
@@ -63,9 +64,14 @@ html,body{
             line-height:(@nav-width)/1.8;
             color:@nav-li-background;
         }
+        img{
+            width:100px;
+            height:100px;
+        }
     }
     ul{
         li{
+            position:relative;
             list-style:none;
             a{
                 &:hover{
@@ -76,8 +82,9 @@ html,body{
                 float:right;
             }
             .list-group-li{
-                width:(@nav-width)-20;
-                margin-left:20px;
+                overflow:hidden;  
+                width:@nav-width;
+                padding-left:20px;
                 height:auto;
                 li{
                     &:hover{
@@ -86,8 +93,44 @@ html,body{
                 }
             }
             .addgroupli{
-                border-left:@nav-li-border;
                 margin-left:10px;
+                border:3px solid transparent;
+                &:before{
+                    content:'';
+                    display:block;
+                    border-top:30px solid transparent;
+                    //border-right:30px solid @nav-li-background;
+                    border-bottom:30px solid transparent;
+                    border-left:30px solid @nav-li-background;
+                    position:absolute;
+                    left:-35px;
+                    top:-8px;
+                    z-index:2;
+                }
+                &:after{
+                    content:'';
+                    width:100px;
+                    height:25px;
+                    transform-origin:100px 25px;
+                    background-color:@nav-li-background;
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    z-index:-1;
+                    animation:navBorderMove 3s infinite linear;
+                }
+            }
+            @keyframes navBorderMove
+            {
+                from{
+                    opacity:1;
+                    transform:rotate(0deg);
+                }
+                to{
+                    opacity:0.2;
+                    transform:rotate(360deg);
+                }
+                
             }
         }   
     }

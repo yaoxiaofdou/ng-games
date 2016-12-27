@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highmaps Example</title>
+
+		<script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+		<style type="text/css">
+#container {
+    height: 500px; 
+    min-width: 310px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+		</style>
+		<script type="text/javascript">
+$(function () {
+
+    // Prepare random data
+    var data = [
+        ['DE.SH', 728],
+        ['DE.BE', 710],
+        ['DE.MV', 963],
+        ['DE.HB', 541],
+        ['DE.HH', 622],
+        ['DE.RP', 866],
+        ['DE.SL', 398],
+        ['DE.BY', 785],
+        ['DE.SN', 223],
+        ['DE.ST', 605],
+        ['DE.NW', 237],
+        ['DE.BW', 157],
+        ['DE.HE', 134],
+        ['DE.NI', 136],
+        ['DE.TH', 704],
+        ['DE.', 361]
+    ];
+
+    $.getJSON('http://datas.org.cn/jsonp?filename=json/germany.geo.json&callback=?', function (geojson) {
+
+        // Initiate the chart
+        $('#container').highcharts('Map', {
+
+            title: {
+                text: 'GeoJSON in Highmaps'
+            },
+
+            mapNavigation: {
+                enabled: true,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+            colorAxis: {
+            },
+
+            series: [{
+                data: data,
+                mapData: geojson,
+                joinBy: ['code_hasc', 0],
+                keys: ['code_hasc', 'value'],
+                name: 'Random data',
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.properties.postal}'
+                }
+            }]
+        });
+    });
+});
+		</script>
+	</head>
+	<body>
+<script src="http://cdn.hcharts.cn/highmaps/highmaps.js"></script>
+<script src="http://cdn.hcharts.cn/highmaps/modules/data.js"></script>
+<script src="http://cdn.hcharts.cn/highmaps/modules/exporting.js"></script>
+
+
+<div id="container" style="min-width: 310px; max-width: 400px"></div>
+
+	</body>
+</html>

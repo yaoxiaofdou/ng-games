@@ -13,12 +13,14 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
     $scope.dice_d = 'move.gif';
     $scope.dice_e = 'move.gif';
     $scope.dice_f = 'move.gif';
+
     // 功能实现函数
     $scope.bobinFun = function() {
+
         // title 显示隐藏开关
         $scope.titleshow = false;
 
-        // 默认的跑动图片
+        // 点击后先切换成跑动图片
         $scope.dice_a = 'move.gif';
         $scope.dice_b = 'move.gif';
         $scope.dice_c = 'move.gif';
@@ -26,10 +28,11 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
         $scope.dice_e = 'move.gif';
         $scope.dice_f = 'move.gif';
 
+        // 等级划分
         var level = {
-                one: '状元插金花~~~~~3000元大奖啊！',
-                two: '六红',
-                three: '五红',
+                one: '状元插金花！',
+                two: '六红六子', // 六子
+                three: '五红五子', // 五子
                 four: '普通状元',
                 five: '对堂',
                 six: '三红',
@@ -39,7 +42,11 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                 ten: '没有奖哦亲~~~~~'
             },
             this_level; // 存储当前等级
+
+        //  存储当前随机数组
         var NumberArr = [];
+
+        //  生成随机数据
         var a = Math.floor(Math.random() * 6) + 1,
             b = Math.floor(Math.random() * 6) + 1,
             c = Math.floor(Math.random() * 6) + 1,
@@ -51,18 +58,21 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
         NumberArr.push(a, b, c, d, e, f);
         NumberArr.sort();
 
-        var isfour = 0; //存储当前的四的个数
+        //存储当前 “四” 的个数
+        var isfour = 0;
 
         for (var i = 0; i < NumberArr.length; i++) {
             if (NumberArr[i] == 4) {
                 isfour = isfour + 1;
             }
         }
-        // 基础的对4进行判断一遍;
+
+        // 判断 “四” 的个数属于哪一等级;
         switch (isfour) {
             case 1:
                 for (var i = 0; i < NumberArr.length; i++) {
-                    var ContrastArr = []; //存储当前相同的数量，判断是否为四进
+                    //存储当前相同的数量，判断是否为四进
+                    var ContrastArr = [];
                     for (var j = 0; j < NumberArr.length; j++) {
                         if (NumberArr[i] == NumberArr[j]) {
                             ContrastArr.push(NumberArr[j]);
@@ -71,13 +81,13 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                 }
                 // 等到上面遍历执行完再进行判断属于哪个级别
                 if (ContrastArr.length === 4) {
-                    this_level = level.seven;
+                    this_level = level.seven; //四进
                     break;
                 } else if (ContrastArr.length === 5) {
-                    this_level = level.three;
+                    this_level = level.three; //五红
                     break;
                 } else if (ContrastArr.length === 6) {
-                    this_level = level.two;
+                    this_level = level.two; //六红
                     break;
                 } else {
                     // 判断一下，是 "对堂"" or ”一秀“，对堂就是顺子，123456，一秀就是一个只有4；
@@ -115,7 +125,7 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                             ContrastArr.push(NumberArr[j]);
                         }
                     }
-                    // 判断4进,二举
+                    // 判断是 4进 or 二举
                     if (ContrastArr.length === 4) {
                         this_level = level.seven;
                         break;
@@ -136,19 +146,19 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                     }
                 }
                 if (one == 2) {
-                    this_level = level.one;
+                    this_level = level.one; // 插金花
                 } else {
-                    this_level = level.four;
+                    this_level = level.four; //普通状元
                 }
                 break;
             case 5:
-                this_level = level.three;
+                this_level = level.three; // 五红五子
                 break;
             case 6:
-                this_level = level.two;
+                this_level = level.two; //六红六子
                 break;
             default:
-                // 就是页面都没有四,来判断是否属于 “对堂” 和 “四进” 中的哪一种;
+                // 就是页面都没有四,来判断是否属于 “五子” 和 “六子” 和 “四进” 中的哪一种;
                 for (var i = 0; i < NumberArr.length; i++) {
                     var ContrastArr = [];
                     for (var j = 0; j < NumberArr.length; j++) {
@@ -157,13 +167,13 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                         }
                     }
                     if (ContrastArr.length === 4) {
-                        this_level = level.seven;
+                        this_level = level.seven; //四进
                         break;
                     } else if (ContrastArr.length === 5) {
-                        this_level = level.three;
+                        this_level = level.three; //五子
                         break;
                     } else if (ContrastArr.length === 6) {
-                        this_level = level.two;
+                        this_level = level.two; //六子
                         break;
                     } else {
                         this_level = level.ten;
@@ -172,7 +182,7 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
                 break;
         }
 
-        // 定时设置最终显示的骰子图片
+        // 定时来设置最终显示的骰子图片
         var timeout = $timeout(function() {
             $scope.dice_a = a + '.png';
             $scope.dice_b = b + '.png';
@@ -180,9 +190,9 @@ appdemo.controller('ngbobin', ['$scope', '$timeout', function($scope, $timeout) 
             $scope.dice_d = d + '.png';
             $scope.dice_e = e + '.png';
             $scope.dice_f = f + '.png';
-            // 设置 title 显示
+            // 设置 title 为显示状态
             $scope.titleshow = true;
-            // 显示 level
+            // 显示 level 当前等级
             $scope.title = this_level;
         }, 2000);
 

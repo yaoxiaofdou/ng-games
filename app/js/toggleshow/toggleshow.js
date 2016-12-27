@@ -30,6 +30,9 @@ appdemo.controller('togglecontrolle', ['$scope', '$interval', '$timeout', functi
             $scope.countNum--;
             if ($scope.countNum == 0) {
                 $interval.cancel(timer);
+                // 重置属性
+                $scope.countNum = 10;
+                $scope.timertitle = '定时器案例';
             }
         }, 1000);
         var timeout = $timeout(function() {

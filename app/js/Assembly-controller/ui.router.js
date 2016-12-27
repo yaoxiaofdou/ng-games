@@ -55,6 +55,48 @@ appdemo.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'js/dropdowns/dropdowns.html',
             controller: "Assemblydropdowns"
         })
+        // input-type
+        .state("input-type", {
+            url: '/input-type',
+            templateUrl: 'js/input-type/input-type.html',
+            controller: ""
+        })
+        // input-search
+        .state("input-search", {
+            url: '/input-search',
+            templateUrl: 'js/input-search/input-search.html',
+            controller: ""
+        })
+        // img-enlarge
+        .state("img-enlarge", {
+            url: '/img-enlarge',
+            templateUrl: 'js/imgenlarge/imgenlarge.html',
+            controller: ""
+        })
+        // shoppingcart
+        .state("shoppingcart", {
+            url: '/shoppingcart',
+            templateUrl: 'js/shoppingcart/shoppingcart.html',
+            controller: ""
+        })
+        // file upload
+        .state("file-upload", {
+            url: '/file-upload',
+            templateUrl: 'js/file-upload/file-upload.html',
+            controller: ""
+        })
+        // map
+        .state("map", {
+            url: '/map',
+            templateUrl: 'js/map/map.html',
+            controller: ""
+        })
+        // gird
+        .state("gird", {
+            url: '/gird',
+            templateUrl: 'js/gird/gird.html',
+            controller: ""
+        })
         // toggle 页面路由
         .state("togglecontrolle", {
             url: '/togglecontrolle',
@@ -69,7 +111,7 @@ appdemo.config(function($stateProvider, $urlRouterProvider) {
         .state("adddropdown", {
             url: '/adddropdown',
             templateUrl: 'js/adddropdown/adddropdown.html',
-            controller: 'adddropdowncontroller'
+            controller: ''
         })
         // ui-bootstrap 页面路由
         .state("uibootstrap-button", {
